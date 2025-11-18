@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mignon Rossouw Portfolio</title>
 
-
     <!-- Bootstrap CSS for responsive layout and components -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -15,8 +14,9 @@
     <!-- Bootstrap Icons for additional icon set -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
+    <!-- Hackernoon Icons -->
+    <link rel="stylesheet" href="node_modules/@hackernoon/pixel-icon-library/fonts/iconfont.css">
     <style>
-
         /* Colour Palette */
         /*
 
@@ -33,35 +33,60 @@
 
         */
 
+:root {
+  --white: #f2eef1;
+  --light-pink: #ffa7bf;
+  --pink: #ec7d9b;
+  --neon-pink: #e64667;
+  --puce: #a02552;
+  --grape: #75024d;
+  --purple: #2c0f30;
+  --dark-orange: #e18434;
+  --orange: #ffa01b;
+  --yellow: #ffbd20;
+}
+
+        @font-face {
+          font-family: 'NokiaFC22';
+          src: url('../assets/fonts/NokiaFC22.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+        }
+
         body {
-            background-image: url("./assets/images/backgrounds/background-main.png");
+            background-image: url("./assets/images/backgrounds/orig_big.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: 'NokiaFC22', sans-serif;
             height: 100vh;
             overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        
+
         .desktop-container {
             height: calc(100vh - 60px);
             padding: 20px;
         }
-        
+
         .desktop-icon {
-            width: 80px;
+            width: 100px;
             text-align: center;
-            margin-bottom: 15px;
+           margin-bottom: 15px;
             cursor: pointer;
             padding: 10px 5px;
             border-radius: 5px;
         }
-        
+
         .desktop-icon:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-        
+
         .desktop-icon:active {
             background-color: rgba(0, 0, 0, 0.1);
         }
-        
+
         .icon-img {
             width: 48px;
             height: 48px;
@@ -69,84 +94,163 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #2c0f30;
+            color: var(--purple);
         }
-        
+
         .icon-label {
             color: #16425b;
             word-break: break-word;
-            line-height: 1.2;
-            font-size: small;
+            line-height: 1.6;
+            font-size: xx-small;
         }
-        
+
         .taskbar {
             height: 60px;
-            background-color: #FFC8DD;
+            background-color: var(--pink);
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             padding: 0 10px;
+            display: flex;
+            align-items: center;
         }
-        
+
         .start-button {
-            background-color: #16425b;
-            color: #CDB4DB;
+            color: var(--light-pink);
+            background-color: var(--puce);
             display: flex;
             align-items: center;
+            border-top: 3px solid var(--light-pink);
+            border-left: 3px solid var(--light-pink);
+            border-bottom: 3px solid var(--grape);
+            border-right: 3px solid var(--grape);
+            cursor: pointer;
+            image-rendering: pixelated;
+            padding: 8px 15px;
         }
-        
+
         .start-button:hover {
-            background-color: #A2D2FF;
+            background-color: var(--grape);
+            color: var(--purple);
+            border-bottom: 3px solid var(--purple);
+            border-right: 3px solid var(--purple);
         }
-        
+
         .start-button:active {
-            border: 2px inset #A2D2FF;
+            border-top: 3px solid #a02552;
+            border-left: 3px solid #a02552;
+            border-bottom: 3px solid #ffa7bf;
+            border-right: 3px solid #ffa7bf;
+            background-color: #e64667;
         }
-        
+
         .taskbar-item {
-            background-color: #16425b;
-            color: #CDB4DB;
+            color: #16425b;
+            background-color: #ec7d9b;
             display: flex;
             align-items: center;
-            overflow: hidden;
-            white-space: nowrap;
+            justify-content: center;
+            border-top: 3px solid #ffa7bf;
+            border-left: 3px solid #ffa7bf;
+            border-bottom: 3px solid #a02552;
+            border-right: 3px solid #a02552;
+            cursor: pointer;
+            image-rendering: pixelated;
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+            padding: 5px;
         }
-        
+
+        .taskbar-item:hover {
+            background-color: #ffbd20;
+        }
+
+        .taskbar-item:active {
+            border-top: 3px solid #a02552;
+            border-left: 3px solid #a02552;
+            border-bottom: 3px solid #ffa7bf;
+            border-right: 3px solid #ffa7bf;
+            background-color: #e64667;
+        }
+
+        .taskbar-item.minimized {
+            background-color: #a02552;
+            opacity: 0.7;
+        }
+
+        .taskbar-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            font-size: 18px;
+            color: #2c0f30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .system-tray {
             display: flex;
             align-items: center;
             padding: 0 10px;
             color: #16425b;
         }
-        
+
         .window {
             position: absolute;
             background-color: #ffffff;
             min-width: 300px;
             min-height: 200px;
             display: none;
+            border-top: 3px solid #ffa7bf;
+            border-left: 3px solid #ffa7bf;
+            border-bottom: 3px solid #a02552;
+            border-right: 3px solid #a02552;
+            cursor: pointer;
+            image-rendering: pixelated;
         }
-        
+
         .window-header {
-            background-color: #CDB4DB;
+            background-color: #FFC8DD;
             color: #16425b;
             cursor: grab;
         }
-        
+
         .window-controls button {
-            background: none;
-            border: none;
             color: #16425b;
-            font-weight: bold;
+            background: #ffc4db;
+            border-top: 3px solid #ffa7bf;
+            border-left: 3px solid #ffa7bf;
+            border-bottom: 3px solid #a02552;
+            border-right: 3px solid #a02552;
             cursor: pointer;
         }
-        
+
+        .window-controls button:hover {
+            background: #ffafd0;
+            border-top-color: #ff8fb3;
+            border-left-color: #ff8fb3;
+            border-bottom-color: #8c1d44;
+            border-right-color: #8c1d44;
+            transition: all 0.2s ease;
+        }
+
+        .window-controls button:active {
+            background: #ff96c2;
+            border-top-color: #a02552;
+            border-left-color: #a02552;
+            border-bottom-color: #ffa7bf;
+            border-right-color: #ffa7bf;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
         .window-body {
             height: calc(100% - 40px);
             overflow: auto;
         }
-        
+
         .start-menu {
             position: absolute;
             bottom: 60px;
@@ -155,27 +259,36 @@
             background-color: #FFC8DD;
             display: none;
             z-index: 1000;
+            border-top: 3px solid #ffa7bf;
+            border-left: 3px solid #ffa7bf;
+            border-bottom: 3px solid #a02552;
+            border-right: 3px solid #a02552;
+            image-rendering: pixelated;
         }
-        
+
         .start-menu-header {
-            background: linear-gradient(90deg,rgba(162, 210, 255, 1) 0%, rgba(204, 181, 220, 1) 65%, rgba(205, 180, 219, 1) 100%);
-            color: #16425b;
-            padding: 10px 15px;
-            font-weight: bold;
+            color: #f2eef1;
+            background-color: #ec7d9b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid #a02552;
+            user-select: none;
+            cursor: default;
+            image-rendering: pixelated;
         }
-        
+
         .start-menu-item {
-            padding: 8px 15px;
             cursor: pointer;
             display: flex;
             align-items: center;
             color: #16425b;
         }
-        
+
         .start-menu-item:hover {
             background-color: #CDB4DB;
         }
-        
+
         .start-menu-item i {
             width: 20px;
             text-align: center;
@@ -191,8 +304,8 @@
                 <!-- My Computer Icon -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('myComputer')">
-                        <div class="icon-img fs-4">
-                            <img src="./assets/images/icons/my-computer.png" class="img-fluid" alt="my-computer">
+                        <div class="icon-img">
+                            <i class="hn hn-technology"></i>
                         </div>
                         <div class="icon-label">My Computer</div>
                     </div>
@@ -201,60 +314,50 @@
                 <!-- Documents Icon -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('documents')">
-                        <div class="icon-img fs-4">
-                            <img src="./assets/images/icons/folder.png" class="img-fluid" alt="folder">
+                        <div class="icon-img">
+                           <i class="hn hn-folder-open-solid"></i>
                         </div>
                         <div class="icon-label">Documents</div>
-                    </div>
-                </div>
-                
-                <!-- Recycle Bin Icon -->
-                <div class="col-auto">
-                    <div class="desktop-icon" onclick="openWindow('recycleBin')">
-                        <div class="icon-img fs-4">
-                            <img src="./assets/images/icons/recycle-bin.png" class="img-fluid" alt="recycle-bin">
-                        </div>
-                        <div class="icon-label">Recycle Bin</div>
                     </div>
                 </div>
                 
                 <!-- Browser Icon -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('browser')">
-                        <div class="icon-img fs-4">
-                            <img src="./assets/images/icons/globe.png" class="img-fluid" alt="globe">
+                        <div class="icon-img">
+                            <i class="hn hn-web3"></i>
                         </div>
-                        <div class="icon-label">Web Browser</div>
+                        <div class="icon-label">Meowser</div>
                     </div>
                 </div>
                 
                 <!-- Notepad Icon -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('notepad')">
-                        <div class="icon-img fs-4">
-                            <i class="fas fa-file-alt fa-2x"></i>
+                        <div class="icon-img">
+                            <i class="hn hn-writing"></i>
                         </div>
-                        <div class="icon-label">Notepad</div>
+                        <div class="icon-label">Notes</div>
+                    </div>
+                </div>
+
+                <!-- Precious Icon -->
+                <div class="col-auto">
+                    <div class="desktop-icon" onclick="openWindow('precious')">
+                        <div class="icon-img">
+                            <i class="hn hn-image-solid"></i>
+                        </div>
+                        <div class="icon-label">precious.png</div>
                     </div>
                 </div>
                 
                 <!-- Games Icon -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('games')">
-                        <div class="icon-img fs-4">
-                            <i class="fas fa-gamepad fa-2x"></i>
+                        <div class="icon-img">
+                            <i class="hn hn-gaming"></i>
                         </div>
-                        <div class="icon-label">Games</div>
-                    </div>
-                </div>
-                
-                <!-- Settings Icon -->
-                <div class="col-auto">
-                    <div class="desktop-icon" onclick="openWindow('settings')">
-                        <div class="icon-img fs-4">
-                            <i class="fas fa-cog fa-2x"></i>
-                        </div>
-                        <div class="icon-label">Settings</div>
+                        <div class="icon-label">Pounce</div>
                     </div>
                 </div>
                 
@@ -262,9 +365,19 @@
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('music')">
                         <div class="icon-img fs-4">
-                            <i class="fas fa-music fa-2x"></i>
+                            <i class="hn hn-music-solid"></i>
                         </div>
-                        <div class="icon-label">Music Player</div>
+                        <div class="icon-label">Spotify</div>
+                    </div>
+                </div>
+
+                <!-- Recycle Bin Icon -->
+                <div class="col-auto">
+                    <div class="desktop-icon" onclick="openWindow('recycleBin')">
+                        <div class="icon-img">
+                            <i class="hn hn-trash-alt-solid"></i>
+                        </div>
+                        <div class="icon-label">Recycle Bin</div>
                     </div>
                 </div>
             </div>
@@ -275,139 +388,217 @@
         <!-- =============== -->
         
         <!-- My Computer Window -->
-        <div id="myComputer" class="window shadow rounded" style="top: 100px; left: 150px; width: 400px; height: 300px;">
-            <div class="window-header rounded-top d-flex justify-content-between align-items-center p-2 fw-bold">
-                <span>My Computer</span>
-                <div class="window-controls fs-5">
-                    <button onclick="minimizeWindow('myComputer')"><i class="bi bi-dash fw-bold"></i></button>
-                    <button onclick="closeWindow('myComputer')"><i class="bi bi-x"></i></button>
+        <div id="myComputer" class="window shadow" style="width: 400px; height: 300px;">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+                    <!-- LEFT SIDE: icon + title -->
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="hn hn-technology"></i>
+                        <span class="fw-6">My Computer</span>
+                    </div>
+
+                    <!-- RIGHT SIDE: window controls -->
+                    <div class="window-controls d-flex gap-2">
+                        <button class="btn btn-sm" onclick="minimizeWindow('myComputer')">_</button>
+                        <button class="btn btn-sm" onclick="closeWindow('myComputer')">x</button>
+                    </div>
                 </div>
-            </div>
-            <div class="window-body">
-                <h5>My Computer</h5>
-                <div class="list-group">
-                    <div class="list-group-item">Local Disk (C:)</div>
-                    <div class="list-group-item">CD-ROM Drive (D:)</div>
-                    <div class="list-group-item">Network Drives</div>
-                    <div class="list-group-item">Removable Storage</div>
-                </div>
+            <div class="window-body p-3">
+                <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
         
         <!-- Documents Window -->
-        <div id="documents" class="window shadow rounded" style="top: 120px; left: 200px; width: 450px; height: 350px;">
-            <div class="window-header rounded-top d-flex justify-content-between align-items-center p-2 fw-bold">
-                <span>Documents</span>
-                <div class="window-controls fs-5">
-                    <button onclick="minimizeWindow('documents')"><i class="bi bi-dash"></i></button>
-                    <button onclick="closeWindow('documents')"><i class="bi bi-x"></i></button>
+        <div id="documents" class="window shadow" style="width: 400px; height: 300px;">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-folder"></i>
+                    <span class="fw-6">Documents</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('documents')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('documents')">x</button>
                 </div>
             </div>
-            <div class="window-body">
-                <h5>My Documents</h5>
-                <div class="list-group">
-                    <div class="list-group-item">Resume.doc</div>
-                    <div class="list-group-item">Budget.xlsx</div>
-                    <div class="list-group-item">Vacation Photos</div>
-                    <div class="list-group-item">Important Files</div>
-                    <div class="list-group-item">Projects</div>
-                </div>
+
+            <div class="window-body p-3">
+                <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
         
         <!-- Recycle Bin Window -->
-        <div id="recycleBin" class="window shadow rounded" style="top: 80px; left: 250px; width: 350px; height: 250px;">
-            <div class="window-header rounded-top d-flex justify-content-between align-items-center p-2 fw-bold">
-                <span>Recycle Bin</span>
-                <div class="window-controls fs-5">
-                    <button onclick="minimizeWindow('recycleBin')"><i class="bi bi-dash"></i></button>
-                    <button onclick="closeWindow('recycleBin')"><i class="bi bi-x"></i></button>
+        <div id="recycleBin" class="window shadow" style="width: 450px; height: 350px;">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-delete"></i>
+                    <span class="fw-6">Recycle Bin</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('recycleBin')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('recycleBin')">x</button>
                 </div>
             </div>
-            <div class="window-body">
-                <h5>Recycle Bin is empty</h5>
-                <p>Items you delete from your computer are moved to the Recycle Bin.</p>
-                <button class="btn btn-primary mt-2">Empty Recycle Bin</button>
+            <div class="window-body p-3">
+                <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
+
         
         <!-- Browser Window -->
-        <div id="browser" class="window shadow rounded" style="top: 150px; left: 300px; width: 600px; height: 400px;">
-            <div class="window-header rounded-top d-flex justify-content-between align-items-center p-2 fw-bold">
-                <span>Web Browser - Welcome to the Internet</span>
-                <div class="window-controls fs-5">
-                    <button onclick="minimizeWindow('browser')"><i class="bi bi-dash"></i></button>
-                    <button onclick="closeWindow('browser')"><i class="bi bi-x"></i></button>
+        <div id="browser" class="window shadow" style="width: 450px; height: 350px;">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-globe"></i>
+                    <span class="fw-6">Meowser</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('browser')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('browser')">x</button>
                 </div>
             </div>
-            <div class="window-body">
-                <h5>Welcome to the Web!</h5>
-                <p>This is a simulated web browser. In a real application, you could browse actual websites here.</p>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter URL" value="https://example.com">
-                    <button class="btn btn-outline-primary" type="button">Go</button>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Example Domain</h5>
-                        <p class="card-text">This domain is for use in illustrative examples in documents.</p>
-                    </div>
-                </div>
+
+            <div class="window-body p-3">
+                <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
+
         
-        <!-- Notes Window -->
-        <div id="notepad" class="window shadow rounded" style="top: 180px; left: 350px; width: 500px; height: 300px;">
-            <div class="window-header rounded-top d-flex justify-content-between align-items-center p-2 fw-bold">
-                <span>Notepad - Untitled</span>
-                <div class="window-controls fs-5">
-                    <button onclick="minimizeWindow('notepad')"><i class="bi bi-dash"></i></button>
-                    <button onclick="closeWindow('notepad')"><i class="bi bi-x"></i></button>
+        <!-- Notes / Notepad Window -->
+        <div id="notepad" class="window shadow" style="width: 450px; height: 350px;">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-edit"></i>
+                    <span class="fw-6">Notepad</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('notepad')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('notepad')">x</button>
                 </div>
             </div>
-            <div class="window-body p-0">
-                <textarea class="w-100 h-100 border-0 p-3" style="resize: none;">Welcome to Notepad!
-You can type your notes here.
 
-This is a simple text editor simulation.</textarea>
+            <div class="window-body p-3">
+                <!-- Document icons will be loaded here dynamically -->
+            </div>
+        </div>
+
+
+       <!-- Precious Image Window -->
+        <div id="precious" class="window shadow" style="width: 450px; height: 350px;">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-image"></i>
+                    <span class="fw-6">precious.png</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('precious')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('precious')">x</button>
+                </div>
+            </div>
+
+            <div class="window-body" style="width: 100%; height: calc(100% - 40px); overflow: hidden;">
+            </div>
+        </div>
+
+
+        <!-- Pounce Game Window -->
+        <div id="games" class="window shadow" style="width: 450px; height: 350px;">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-game"></i>
+                    <span class="fw-6">Pounce</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('games')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('games')">x</button>
+                </div>
+            </div>
+
+            <div class="window-body p-3">
+                <!-- Document icons will be loaded here dynamically -->
+            </div>
+        </div>
+
+
+        <!-- Music Window -->
+        <div id="music" class="window shadow" style="width: 450px; height: 350px;">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-music"></i>
+                    <span class="fw-6">Spotify</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('music')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('music')">x</button>
+                </div>
+            </div>
+
+            <div class="window-body p-3">
+                <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
         
         <!-- Start Menu -->
-        <div id="startMenu" class="start-menu rounded">
-            <div class="start-menu-header rounded-top">
+        <div id="startMenu" class="start-menu">
+            <div class="start-menu-header p-2 fs-5">
                 Mignon Rossouw
             </div>
             <div>
-                <div class="start-menu-item" onclick="openWindow('myComputer'); toggleStartMenu();">
+                <div class="start-menu-item p-2" onclick="openWindow('myComputer'); toggleStartMenu();">
                     <i class="fas fa-desktop"></i>
                     <span class="ms-4">My Computer</span>
                 </div>
-                <div class="start-menu-item" onclick="openWindow('documents'); toggleStartMenu();">
+                <div class="start-menu-item p-2" onclick="openWindow('documents'); toggleStartMenu();">
                     <i class="fas fa-folder"></i>
                     <span class="ms-4">Documents</span>
                 </div>
-                <div class="start-menu-item" onclick="openWindow('notepad'); toggleStartMenu();">
+                <div class="start-menu-item p-2" onclick="openWindow('notepad'); toggleStartMenu();">
                     <i class="fas fa-file-alt"></i>
                     <span class="ms-4">Notepad</span>
                 </div>
-                <div class="start-menu-item" onclick="openWindow('browser'); toggleStartMenu();">
+                <div class="start-menu-item p-2" onclick="openWindow('browser'); toggleStartMenu();">
                     <i class="fas fa-globe"></i>
                     <span class="ms-4">Web Browser</span>
                 </div>
-                <div class="start-menu-item" onclick="openWindow('games'); toggleStartMenu();">
+                <div class="start-menu-item p-2" onclick="openWindow('games'); toggleStartMenu();">
                     <i class="fas fa-gamepad"></i>
                     <span class="ms-4">Games</span>
                 </div>
-                <div class="start-menu-item" onclick="openWindow('music'); toggleStartMenu();">
+                <div class="start-menu-item p-2" onclick="openWindow('music'); toggleStartMenu();">
                     <i class="fas fa-music"></i>
                     <span class="ms-4">Music Player</span>
                 </div>
-                <div class="start-menu-item" onclick="openWindow('settings'); toggleStartMenu();">
+                <div class="start-menu-item p-2" onclick="openWindow('settings'); toggleStartMenu();">
                     <i class="fas fa-cog"></i>
                     <span class="ms-4">Settings</span>
                 </div>
-                <div class="start-menu-item">
+                <div class="start-menu-item p-2">
                     <i class="fas fa-power-off"></i>
                     <span class="ms-4">Shut Down</span>
                 </div>
@@ -417,14 +608,14 @@ This is a simple text editor simulation.</textarea>
     
     <!-- Taskbar -->
     <div class="taskbar d-flex align-items-center">
-        <div class="start-button rounded shadow px-4 py-1" onclick="toggleStartMenu()">
+        <div class="start-button px-4 py-1" onclick="toggleStartMenu()">
             Start
         </div>
-        <div class="d-flex flex-grow-1 ms-3" id="taskbarItems">
+        <div class="d-flex flex-grow-1 ms-3 px-4 py-1" id="taskbarItems" >
             <!-- Taskbar items will be added here when windows are opened -->
         </div>
         <div class="system-tray">
-            <i class="fas fa-volume-up me-3 fs-5"></i>
+            <i class="hn hn-sound-on-solid me-2"></i>
             <span id="clock">12:00 PM</span>
         </div>
     </div>
@@ -436,6 +627,8 @@ This is a simple text editor simulation.</textarea>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     
     <script>
+
+        
         // Update clock
         function updateClock() {
             const now = new Date();
@@ -461,65 +654,226 @@ This is a simple text editor simulation.</textarea>
             const startMenu = document.getElementById('startMenu');
             const startButton = document.querySelector('.start-button');
             
-            if (!startMenu.contains(event.target) && !startButton.contains(event.target)) {
+            if (startMenu && startButton && !startMenu.contains(event.target) && !startButton.contains(event.target)) {
                 startMenu.style.display = 'none';
             }
         });
+
+    // Sample documents data with icons
+    const documentsList = [
+        { id: 'doc1', title: 'Project Plan', content: 'This is the Project Plan document content.' },
+        { id: 'doc2', title: 'Budget Report', content: 'This is the Budget Report document content.' },
+        { id: 'doc3', title: 'Meeting Notes', content: 'These are the Meeting Notes document content.' }
+    ];
+
+    function loadDocumentsWindow() {
+        const windowBody = document.querySelector('#documents .window-body');
+        if (!windowBody) return;
+
+        // Clear existing content
+        windowBody.innerHTML = '';
+
+        // Create grid container for documents
+        const grid = document.createElement('div');
+        grid.className = 'documents-grid';
+
+        documentsList.forEach(doc => {
+            const docItem = document.createElement('div');
+            docItem.className = 'document-item';
+            docItem.style.cursor = 'pointer';
+            docItem.onclick = () => openDocument(doc.id);
+
+            // Add icon
+            const icon = document.createElement('div');
+            icon.className = 'document-icon';
+            icon.textContent = doc.icon;
+            icon.style.fontSize = '32px';
+            icon.style.textAlign = 'center';
+            icon.style.marginBottom = '5px';
+
+            // Add title
+            const title = document.createElement('div');
+            title.className = 'document-title';
+            title.textContent = doc.title;
+            title.style.textAlign = 'center';
+            title.style.fontSize = '14px';
+            title.style.wordBreak = 'break-word';
+
+            docItem.appendChild(icon);
+            docItem.appendChild(title);
+
+            grid.appendChild(docItem);
+        });
+
+        windowBody.appendChild(grid);
+    }
+
+    function openDocument(docId) {
+        const doc = documentsList.find(d => d.id === docId);
+        if (!doc) return;
+
+        const windowBody = document.querySelector('#documents .window-body');
+        if (!windowBody) return;
+
+        // Clear the window
+        windowBody.innerHTML = '';
+
+        // Create back button
+        const backButton = document.createElement('button');
+        backButton.textContent = '← Back';
+        backButton.style.marginBottom = '10px';
+        backButton.onclick = loadDocumentsWindow;
+        windowBody.appendChild(backButton);
+
+        // Show document content
+        const content = document.createElement('div');
+        content.textContent = doc.content;
+        content.style.whiteSpace = 'pre-wrap';
+        content.style.marginTop = '10px';
+        windowBody.appendChild(content);
+    }
+
+    // Hook into your openWindow function
+    const originalOpenWindow = openWindow;
+    openWindow = function(windowId) {
+        originalOpenWindow(windowId);
+
+        if (windowId === 'documents') {
+            loadDocumentsWindow();
+        }
+    };
         
         // Window Management
-        function openWindow(windowId) {
-            const window = document.getElementById(windowId);
-            window.style.display = 'block';
-            window.style.zIndex = getHighestZIndex() + 1;
+ function openWindow(windowId) {
+    const win = document.getElementById(windowId);
+    if (!win) return;
+    
+    win.style.display = 'block';
+    win.style.zIndex = getHighestZIndex() + 1;
+    
+    // Add default position if not set
+    if (!win.style.left || !win.style.top) {
+        centerWindow(win);
+    }
+    
+    // Add to taskbar
+    addToTaskbar(windowId);
+    
+    // ----------------------------------------------------
+    // LOAD IMAGE WHEN "precious" WINDOW IS OPENED
+    // ----------------------------------------------------
+    if (windowId === "precious") {
+        const body = win.querySelector(".window-body");
+        
+        // Clear any existing content and load the image
+        if (body) {
+            body.innerHTML = ''; // Clear previous content
             
-            // Add to taskbar
-            addToTaskbar(windowId);
+            const img = document.createElement("img");
+            // Try different possible paths - adjust based on your file structure
+            img.src = "./assets/images/icons/precious.png";
+            img.alt = "Precious";
+            img.style.width = "100%";
+            img.style.height = "100%";
+            img.style.objectFit = "contain";
+            img.onerror = function() {
+                // If first path fails, try alternative paths
+                this.src = "../assets/images/icons/precious.png";
+                this.onerror = function() {
+                    this.src = "assets/images/icons/precious.png";
+                    this.onerror = function() {
+                        console.error("Image not found: precious.png");
+                        this.alt = "Image not found";
+                    };
+                };
+            };
+            body.appendChild(img);
+        }
+    }
+}
+        
+        function centerWindow(window) {
+            const windowWidth = window.offsetWidth;
+            const windowHeight = window.offsetHeight;
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            
+            const left = Math.max(0, (viewportWidth - windowWidth) / 2);
+            const top = Math.max(0, (viewportHeight - windowHeight) / 2);
+            
+            window.style.left = left + 'px';
+            window.style.top = top + 'px';
         }
         
         function closeWindow(windowId) {
             const window = document.getElementById(windowId);
-            window.style.display = 'none';
-            
-            // Remove from taskbar
-            removeFromTaskbar(windowId);
+            if (window) {
+                window.style.display = 'none';
+                removeFromTaskbar(windowId);
+            }
         }
         
         function minimizeWindow(windowId) {
             const window = document.getElementById(windowId);
-            window.style.display = 'none';
-            
-            // Keep in taskbar but mark as minimized
-            const taskbarItem = document.querySelector(`[data-window="${windowId}"]`);
-            if (taskbarItem) {
-                taskbarItem.classList.add('bg-secondary');
+            if (window) {
+                window.style.display = 'none';
+                const taskbarItem = document.querySelector(`[data-window="${windowId}"]`);
+                if (taskbarItem) {
+                    taskbarItem.classList.add('minimized');
+                }
             }
         }
         
         function addToTaskbar(windowId) {
-            const window = document.getElementById(windowId);
-            const title = window.querySelector('.window-header span').textContent;
-            
             // Check if already in taskbar
             if (document.querySelector(`[data-window="${windowId}"]`)) {
+                const taskbarItem = document.querySelector(`[data-window="${windowId}"]`);
+                taskbarItem.classList.remove('minimized');
                 return;
             }
             
             const taskbarItem = document.createElement('div');
             taskbarItem.className = 'taskbar-item';
             taskbarItem.setAttribute('data-window', windowId);
-            taskbarItem.textContent = title;
+            
+            const iconHTML = getWindowIcon(windowId);
+            taskbarItem.innerHTML = iconHTML;
+            
             taskbarItem.onclick = function() {
                 const window = document.getElementById(windowId);
-                if (window.style.display === 'none') {
+                if (window && window.style.display === 'none') {
                     window.style.display = 'block';
                     window.style.zIndex = getHighestZIndex() + 1;
-                    taskbarItem.classList.remove('bg-secondary');
+                    taskbarItem.classList.remove('minimized');
                 } else {
                     minimizeWindow(windowId);
                 }
             };
             
             document.getElementById('taskbarItems').appendChild(taskbarItem);
+        }
+        
+        function getWindowIcon(windowId) {
+            switch(windowId) {
+                case 'myComputer':
+                    return '<i class="fas fa-desktop taskbar-icon"></i>';
+                case 'documents':
+                    return '<i class="fas fa-folder taskbar-icon"></i>';
+                case 'recycleBin':
+                    return '<i class="fas fa-trash-alt taskbar-icon"></i>';
+                case 'browser':
+                    return '<i class="fas fa-globe taskbar-icon"></i>';
+                case 'notepad':
+                    return '<i class="fas fa-file-alt taskbar-icon"></i>';
+                case 'games':
+                    return '<i class="fas fa-gamepad taskbar-icon"></i>';
+                case 'settings':
+                    return '<i class="fas fa-cog taskbar-icon"></i>';
+                case 'music':
+                    return '<i class="fas fa-music taskbar-icon"></i>';
+                default:
+                    return '<i class="fas fa-window taskbar-icon"></i>';
+            }
         }
         
         function removeFromTaskbar(windowId) {
@@ -549,11 +903,11 @@ This is a simple text editor simulation.</textarea>
             
             windows.forEach(window => {
                 const header = window.querySelector('.window-header');
+                if (!header) return;
                 
                 header.addEventListener('mousedown', function(e) {
                     e.preventDefault();
                     
-                    // Bring to front
                     window.style.zIndex = getHighestZIndex() + 1;
                     
                     let startX = e.clientX;
