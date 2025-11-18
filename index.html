@@ -34,7 +34,7 @@
         */
 
 :root {
-  --white: #f2eef1;
+  --white: #f2eef1 ;
   --light-pink: #ffa7bf;
   --pink: #ec7d9b;
   --neon-pink: #e64667;
@@ -46,336 +46,347 @@
   --yellow: #ffbd20;
 }
 
-        @font-face {
-          font-family: 'NokiaFC22';
-          src: url('../assets/fonts/NokiaFC22.ttf') format('truetype');
-          font-weight: normal;
-          font-style: normal;
-        }
+@font-face {
+    font-family: 'NokiaFC22';
+    src: url('../assets/fonts/NokiaFC22.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-        body {
-            background-image: url("./assets/images/backgrounds/orig_big.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            font-family: 'NokiaFC22', sans-serif;
-            height: 100vh;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-        }
+body {
+    background-image: url("./assets/images/backgrounds/orig_big.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'NokiaFC22', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
 
-        .desktop-container {
-            height: calc(100vh - 60px);
-            padding: 20px;
-        }
+.desktop-container {
+    height: calc(100vh - 60px);
+    padding: 20px;
+}
 
-        .desktop-icon {
-            width: 100px;
-            text-align: center;
-           margin-bottom: 15px;
-            cursor: pointer;
-            padding: 10px 5px;
-            border-radius: 5px;
-        }
+.desktop-icon {
+    width: 100px;
+    text-align: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
 
-        .desktop-icon:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
+.desktop-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 
-        .desktop-icon:active {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
+.desktop-icon:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
-        .icon-img {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--purple);
-        }
+.icon-img {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple);
+}
 
-        .icon-label {
-            color: #16425b;
-            word-break: break-word;
-            line-height: 1.6;
-            font-size: xx-small;
-        }
+.icon-label {
+    color: var(--purple);
+    word-break: break-word;
+    line-height: 1.6;
+    font-size: xx-small;
+}
 
-        .taskbar {
-            height: 60px;
-            background-color: var(--pink);
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 0 10px;
-            display: flex;
-            align-items: center;
-        }
+.taskbar {
+    height: 60px;
+    background-color: var(--pink);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
 
-        .start-button {
-            color: var(--light-pink);
-            background-color: var(--puce);
-            display: flex;
-            align-items: center;
-            border-top: 3px solid var(--light-pink);
-            border-left: 3px solid var(--light-pink);
-            border-bottom: 3px solid var(--grape);
-            border-right: 3px solid var(--grape);
-            cursor: pointer;
-            image-rendering: pixelated;
-            padding: 8px 15px;
-        }
+.start-button {
+    color: var(--light-pink);
+    background-color: var(--puce);
+    display: flex;
+    align-items: center;
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    cursor: pointer;
+    image-rendering: pixelated;
+    padding: 8px 15px;
+}
 
-        .start-button:hover {
-            background-color: var(--grape);
-            color: var(--purple);
-            border-bottom: 3px solid var(--purple);
-            border-right: 3px solid var(--purple);
-        }
+.start-button:hover {
+    background-color: var(--grape);
+    color: var(--purple);
+    border-bottom: 3px solid var(--purple);
+    border-right: 3px solid var(--purple);
+}
 
-        .start-button:active {
-            border-top: 3px solid #a02552;
-            border-left: 3px solid #a02552;
-            border-bottom: 3px solid #ffa7bf;
-            border-right: 3px solid #ffa7bf;
-            background-color: #e64667;
-        }
+.start-button:active {
+    border-top: 3px solid var(--grape);
+    border-left: 3px solid var(--grape);
+    border-bottom: 3px solid var(--light-pink);
+    border-right: 3px solid var(--light-pink);
+    background-color: var(--neon-pink);
+}
 
-        .taskbar-item {
-            color: #16425b;
-            background-color: #ec7d9b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-top: 3px solid #ffa7bf;
-            border-left: 3px solid #ffa7bf;
-            border-bottom: 3px solid #a02552;
-            border-right: 3px solid #a02552;
-            cursor: pointer;
-            image-rendering: pixelated;
-            width: 40px;
-            height: 40px;
-            margin-right: 5px;
-            padding: 5px;
-        }
+.taskbar-item {
+    color: var(--light-pink);
+    background-color: var(--puce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    cursor: pointer;
+    image-rendering: pixelated;
+    width: 38px;
+    height: 38px;
+    margin-right: 5px;
+    padding: 5px;
+}
 
-        .taskbar-item:hover {
-            background-color: #ffbd20;
-        }
+.taskbar-item:hover {
+    background-color: var(--yellow);
+}
 
-        .taskbar-item:active {
-            border-top: 3px solid #a02552;
-            border-left: 3px solid #a02552;
-            border-bottom: 3px solid #ffa7bf;
-            border-right: 3px solid #ffa7bf;
-            background-color: #e64667;
-        }
+.taskbar-item:active {
+    border-top: 3px solid var(--grape);
+    border-left: 3px solid var(--grape);
+    border-bottom: 3px solid var(--light-pink);
+    border-right: 3px solid var(--light-pink);
+    background-color: var(--neon-pink);
+}
 
-        .taskbar-item.minimized {
-            background-color: #a02552;
-            opacity: 0.7;
-        }
+.taskbar-item.minimized {
+    background-color: var(--puce);
+    opacity: 0.7;
+}
 
-        .taskbar-icon {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-            font-size: 18px;
-            color: #2c0f30;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.taskbar-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    font-size: 18px;
+    color: var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .system-tray {
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            color: #16425b;
-        }
+.system-tray {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: var(--purple);
+}
 
-        .window {
-            position: absolute;
-            background-color: #ffffff;
-            min-width: 300px;
-            min-height: 200px;
-            display: none;
-            border-top: 3px solid #ffa7bf;
-            border-left: 3px solid #ffa7bf;
-            border-bottom: 3px solid #a02552;
-            border-right: 3px solid #a02552;
-            cursor: pointer;
-            image-rendering: pixelated;
-        }
+.window {
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 300px;
+    min-height: 200px;
+    display: none;
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    image-rendering: pixelated;
+}
 
-        .window-header {
-            background-color: #FFC8DD;
-            color: #16425b;
-            cursor: grab;
-        }
+.window-header {
+    background-color: var(--neon-pink);
+    color: var(--purple);
+    cursor: grab;
+}
 
-        .window-controls button {
-            color: #16425b;
-            background: #ffc4db;
-            border-top: 3px solid #ffa7bf;
-            border-left: 3px solid #ffa7bf;
-            border-bottom: 3px solid #a02552;
-            border-right: 3px solid #a02552;
-            cursor: pointer;
-        }
+.window-controls button {
+    color: var(--purple);
+    background: var(--white);
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    cursor: pointer;
+}
 
-        .window-controls button:hover {
-            background: #ffafd0;
-            border-top-color: #ff8fb3;
-            border-left-color: #ff8fb3;
-            border-bottom-color: #8c1d44;
-            border-right-color: #8c1d44;
-            transition: all 0.2s ease;
-        }
+.window-controls button:hover {
+    background: var(--light-pink);
+    border-top: 3px solid var(--pink);
+    border-left: 3px solid var(--pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    transition: all 0.2s ease;
+}
 
-        .window-controls button:active {
-            background: #ff96c2;
-            border-top-color: #a02552;
-            border-left-color: #a02552;
-            border-bottom-color: #ffa7bf;
-            border-right-color: #ffa7bf;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+.window-controls button:active {
+    background: var(--pink);
+    border-top: 3px solid var(--pink);
+    border-left: 3px solid var(--pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        .window-body {
-            height: calc(100% - 40px);
-            overflow: auto;
-        }
+.window-body {
+    height: calc(100% - 40px);
+    overflow: hidden;
+}
 
-        .start-menu {
-            position: absolute;
-            bottom: 60px;
-            left: 10px;
-            width: 300px;
-            background-color: #FFC8DD;
-            display: none;
-            z-index: 1000;
-            border-top: 3px solid #ffa7bf;
-            border-left: 3px solid #ffa7bf;
-            border-bottom: 3px solid #a02552;
-            border-right: 3px solid #a02552;
-            image-rendering: pixelated;
-        }
+.start-menu {
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    width: 300px;
+    background-color: var(--white);
+    display: none;
+    z-index: 1000;
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    image-rendering: pixelated;
+}
 
-        .start-menu-header {
-            color: #f2eef1;
-            background-color: #ec7d9b;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 3px solid #a02552;
-            user-select: none;
-            cursor: default;
-            image-rendering: pixelated;
-        }
+.start-menu-header {
+    color: var(--light-pink);
+    background-color: var(--neon-pink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--grape);
+    user-select: none;
+    cursor: default;
+    image-rendering: pixelated;
+}
 
-        .start-menu-item {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            color: #16425b;
-        }
+.start-menu-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--purple);
+}
 
-        .start-menu-item:hover {
-            background-color: #CDB4DB;
-        }
+.start-menu-item:hover {
+    background-color: var(--light-pink);
+}
 
-        .start-menu-item i {
-            width: 20px;
-            text-align: center;
-        }
+.start-menu-item i {
+    width: 20px;
+    text-align: center;
+}
     </style>
 </head>
 <body>
+
+    <!-- ============================================================ -->
     <!-- Desktop Area -->
+    <!-- ============================================================ -->
     <div class="desktop-container">
         <!-- Desktop Icons using Bootstrap Grid -->
         <div class="container-fluid h-100">
             <div class="row align-content-start">
+
                 <!-- My Computer Icon -->
+                <!-- ------------------ -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('myComputer')">
                         <div class="icon-img">
-                            <i class="hn hn-technology"></i>
+                            <i class="hn hn-technology fs-1"></i>
                         </div>
                         <div class="icon-label">My Computer</div>
                     </div>
                 </div>
                 
                 <!-- Documents Icon -->
+                <!-- ------------------ -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('documents')">
                         <div class="icon-img">
-                           <i class="hn hn-folder-open-solid"></i>
+                           <i class="hn hn-folder-open-solid fs-1"></i>
                         </div>
                         <div class="icon-label">Documents</div>
                     </div>
                 </div>
                 
                 <!-- Browser Icon -->
+                <!-- ------------------ -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('browser')">
                         <div class="icon-img">
-                            <i class="hn hn-web3"></i>
+                            <i class="hn hn-web3 fs-1"></i>
                         </div>
                         <div class="icon-label">Meowser</div>
                     </div>
                 </div>
                 
                 <!-- Notepad Icon -->
+                <!-- ------------------ -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('notepad')">
                         <div class="icon-img">
-                            <i class="hn hn-writing"></i>
+                            <i class="hn hn-writing fs-1"></i>
                         </div>
                         <div class="icon-label">Notes</div>
                     </div>
                 </div>
 
                 <!-- Precious Icon -->
+                <!-- ------------------ -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('precious')">
                         <div class="icon-img">
-                            <i class="hn hn-image-solid"></i>
+                            <i class="hn hn-image-solid fs-1"></i>
                         </div>
                         <div class="icon-label">precious.png</div>
                     </div>
                 </div>
                 
                 <!-- Games Icon -->
+                <!-- ------------------ -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('games')">
                         <div class="icon-img">
-                            <i class="hn hn-gaming"></i>
+                            <i class="hn hn-gaming fs-1"></i>
                         </div>
                         <div class="icon-label">Pounce</div>
                     </div>
                 </div>
                 
                 <!-- Music Icon -->
+                <!-- ------------------ -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('music')">
                         <div class="icon-img fs-4">
-                            <i class="hn hn-music-solid"></i>
+                            <i class="hn hn-music-solid fs-1"></i>
                         </div>
                         <div class="icon-label">Spotify</div>
                     </div>
                 </div>
 
                 <!-- Recycle Bin Icon -->
+                <!-- ------------------ -->
                 <div class="col-auto">
                     <div class="desktop-icon" onclick="openWindow('recycleBin')">
                         <div class="icon-img">
-                            <i class="hn hn-trash-alt-solid"></i>
+                            <i class="hn hn-trash-alt-solid fs-1"></i>
                         </div>
                         <div class="icon-label">Recycle Bin</div>
                     </div>
@@ -383,11 +394,12 @@
             </div>
         </div>
         
-        <!-- =============== -->
+        <!-- ============================================================ -->
         <!-- Windows -->
-        <!-- =============== -->
+        <!-- ============================================================ -->
         
         <!-- My Computer Window -->
+        <!-- ------------------ -->
         <div id="myComputer" class="window shadow" style="width: 400px; height: 300px;">
             <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
                     <!-- LEFT SIDE: icon + title -->
@@ -402,18 +414,19 @@
                         <button class="btn btn-sm" onclick="closeWindow('myComputer')">x</button>
                     </div>
                 </div>
-            <div class="window-body p-3">
+            <div class="window-body p-3 cursor-default">
                 <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
         
         <!-- Documents Window -->
+        <!-- ------------------ -->
         <div id="documents" class="window shadow" style="width: 400px; height: 300px;">
             <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
 
                 <!-- LEFT: icon + title -->
                 <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-folder"></i>
+                    <i class="hn hn-folder-open-solid"></i>
                     <span class="fw-6">Documents</span>
                 </div>
 
@@ -424,18 +437,19 @@
                 </div>
             </div>
 
-            <div class="window-body p-3">
+            <div class="window-body p-2 cursor-default">
                 <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
         
         <!-- Recycle Bin Window -->
+        <!-- ------------------ -->
         <div id="recycleBin" class="window shadow" style="width: 450px; height: 350px;">
             <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
 
                 <!-- LEFT: icon + title -->
                 <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-delete"></i>
+                    <i class="hn hn-trash-alt-solid"></i>
                     <span class="fw-6">Recycle Bin</span>
                 </div>
 
@@ -445,19 +459,20 @@
                     <button class="btn btn-sm" onclick="closeWindow('recycleBin')">x</button>
                 </div>
             </div>
-            <div class="window-body p-3">
+            <div class="window-body p-3 cursor-default">
                 <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
 
         
         <!-- Browser Window -->
+        <!-- ------------------ -->
         <div id="browser" class="window shadow" style="width: 450px; height: 350px;">
             <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
 
                 <!-- LEFT: icon + title -->
                 <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-globe"></i>
+                    <i class="hn hn-web3"></i>
                     <span class="fw-6">Meowser</span>
                 </div>
 
@@ -468,19 +483,20 @@
                 </div>
             </div>
 
-            <div class="window-body p-3">
+            <div class="window-body p-3 cursor-default">
                 <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
 
         
         <!-- Notes / Notepad Window -->
+        <!-- ------------------ -->
         <div id="notepad" class="window shadow" style="width: 450px; height: 350px;">
             <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
 
                 <!-- LEFT: icon + title -->
                 <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-edit"></i>
+                    <i class="hn hn-writing"></i>
                     <span class="fw-6">Notepad</span>
                 </div>
 
@@ -491,19 +507,20 @@
                 </div>
             </div>
 
-            <div class="window-body p-3">
+            <div class="window-body p-3 cursor-default">
                 <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
 
 
-       <!-- Precious Image Window -->
+        <!-- Precious Image Window -->
+        <!-- ------------------ -->
         <div id="precious" class="window shadow" style="width: 450px; height: 350px;">
             <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
 
                 <!-- LEFT: icon + title -->
                 <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-image"></i>
+                    <i class="hn hn-image-solid"></i>
                     <span class="fw-6">precious.png</span>
                 </div>
 
@@ -520,12 +537,13 @@
 
 
         <!-- Pounce Game Window -->
+        <!-- ------------------ -->
         <div id="games" class="window shadow" style="width: 450px; height: 350px;">
             <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
 
                 <!-- LEFT: icon + title -->
                 <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-game"></i>
+                    <i class="hn hn-gaming"></i>
                     <span class="fw-6">Pounce</span>
                 </div>
 
@@ -536,19 +554,20 @@
                 </div>
             </div>
 
-            <div class="window-body p-3">
+            <div class="window-body p-3 cursor-default">
                 <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
 
 
         <!-- Music Window -->
+        <!-- ------------------ -->
         <div id="music" class="window shadow" style="width: 450px; height: 350px;">
             <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
 
                 <!-- LEFT: icon + title -->
                 <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-music"></i>
+                    <i class="hn hn-music-solid"></i>
                     <span class="fw-6">Spotify</span>
                 </div>
 
@@ -559,7 +578,7 @@
                 </div>
             </div>
 
-            <div class="window-body p-3">
+            <div class="window-body p-3 cursor-default">
                 <!-- Document icons will be loaded here dynamically -->
             </div>
         </div>
@@ -571,41 +590,40 @@
             </div>
             <div>
                 <div class="start-menu-item p-2" onclick="openWindow('myComputer'); toggleStartMenu();">
-                    <i class="fas fa-desktop"></i>
+                    <i class="hn hn-technology"></i>
                     <span class="ms-4">My Computer</span>
                 </div>
                 <div class="start-menu-item p-2" onclick="openWindow('documents'); toggleStartMenu();">
-                    <i class="fas fa-folder"></i>
+                    <i class="hn hn-folder-open-solid"></i>
                     <span class="ms-4">Documents</span>
                 </div>
                 <div class="start-menu-item p-2" onclick="openWindow('notepad'); toggleStartMenu();">
-                    <i class="fas fa-file-alt"></i>
+                    <i class="hn hn-writing"></i>
                     <span class="ms-4">Notepad</span>
                 </div>
                 <div class="start-menu-item p-2" onclick="openWindow('browser'); toggleStartMenu();">
-                    <i class="fas fa-globe"></i>
+                    <i class="hn hn-web3"></i>
                     <span class="ms-4">Web Browser</span>
                 </div>
                 <div class="start-menu-item p-2" onclick="openWindow('games'); toggleStartMenu();">
-                    <i class="fas fa-gamepad"></i>
+                    <i class="hn hn-gaming"></i>
                     <span class="ms-4">Games</span>
                 </div>
                 <div class="start-menu-item p-2" onclick="openWindow('music'); toggleStartMenu();">
-                    <i class="fas fa-music"></i>
+                    <i class="hn hn-music-solid"></i>
                     <span class="ms-4">Music Player</span>
                 </div>
                 <div class="start-menu-item p-2" onclick="openWindow('settings'); toggleStartMenu();">
-                    <i class="fas fa-cog"></i>
+                    <i class="hn hn-cog-solid"></i>
                     <span class="ms-4">Settings</span>
                 </div>
                 <div class="start-menu-item p-2">
-                    <i class="fas fa-power-off"></i>
+                    <i class="hn hn-moon-solid"></i>
                     <span class="ms-4">Shut Down</span>
                 </div>
             </div>
         </div>
     </div>
-    
     <!-- Taskbar -->
     <div class="taskbar d-flex align-items-center">
         <div class="start-button px-4 py-1" onclick="toggleStartMenu()">
@@ -614,9 +632,9 @@
         <div class="d-flex flex-grow-1 ms-3 px-4 py-1" id="taskbarItems" >
             <!-- Taskbar items will be added here when windows are opened -->
         </div>
-        <div class="system-tray">
-            <i class="hn hn-sound-on-solid me-2"></i>
-            <span id="clock">12:00 PM</span>
+        <div class="system-tray cursor-pointer">
+            <i class="hn hn-sound-on-solid me-3 cursor-pointer fs-5"></i>
+            <span id="clock" class="cursor-default fs-6">12:00 PM</span>
         </div>
     </div>
 
@@ -661,88 +679,726 @@
 
     // Sample documents data with icons
     const documentsList = [
-        { id: 'doc1', title: 'Project Plan', content: 'This is the Project Plan document content.' },
-        { id: 'doc2', title: 'Budget Report', content: 'This is the Budget Report document content.' },
-        { id: 'doc3', title: 'Meeting Notes', content: 'These are the Meeting Notes document content.' }
+        {   
+            id: 'doc1', 
+            title: 'Portfolio Overview', 
+            content: `Welcome to my digital portfolio!
+
+            I'm a passionate developer specializing in creating engaging, user-centered digital experiences. With a background in both design and development, I bridge the gap between creative vision and technical execution.
+
+            WHAT I OFFER:
+            - Full-stack web development
+            - Responsive design implementation
+            - Clean, maintainable code
+            - Problem-solving mindset
+            - Continuous learning approach
+
+            This portfolio showcases my journey, projects, and skills - feel free to explore and get in touch!`
+        },
+        {   
+            id: 'doc2', 
+            title: 'Projects', 
+            content: 'A list of my projects, with links and descriptions of what I built.' 
+        },
+        {   
+            id: 'doc3', 
+            title: 'Resume', 
+            content: '',
+            pdfUrl: 'https://drive.google.com/file/d/1kI5yratYJPQbIdahUXo4JISCYf1JB-Y2/view?usp=sharing' 
+        },
+        { 
+            id: 'doc4', 
+            title: 'Skills', 
+            content: 'Programming languages, frameworks, and tools I am proficient in.' 
+        },
+        { 
+            id: 'doc5', 
+            title: 'Fun Facts', 
+            content: 'A playful document with hobbies, interests, and personal tidbits.' 
+        },
+        { 
+            id: 'doc6', 
+            title: 'Fun Facts', 
+            content: 'A playful document with hobbies, interests, and personal tidbits.' 
+        }
     ];
 
     function loadDocumentsWindow() {
-        const windowBody = document.querySelector('#documents .window-body');
-        if (!windowBody) return;
+    const windowBody = document.querySelector('#documents .window-body');
+    const documentsWindow = document.getElementById('documents');
+    if (!windowBody || !documentsWindow) return;
 
-        // Clear existing content
-        windowBody.innerHTML = '';
+    // Clear existing content
+    windowBody.innerHTML = '';
 
-        // Create grid container for documents
-        const grid = document.createElement('div');
-        grid.className = 'documents-grid';
+    // RESET WINDOW SIZE to original
+    documentsWindow.style.width = '400px';
+    documentsWindow.style.height = '300px';
+    centerWindow(documentsWindow);
 
-        documentsList.forEach(doc => {
-            const docItem = document.createElement('div');
-            docItem.className = 'document-item';
-            docItem.style.cursor = 'pointer';
-            docItem.onclick = () => openDocument(doc.id);
+    // Remove scrollbar background
+    windowBody.style.scrollbarColor = 'var(--pink) transparent';
 
-            // Add icon
-            const icon = document.createElement('div');
-            icon.className = 'document-icon';
-            icon.textContent = doc.icon;
-            icon.style.fontSize = '32px';
-            icon.style.textAlign = 'center';
-            icon.style.marginBottom = '5px';
+    // Create container for documents using Bootstrap
+    const container = document.createElement('div');
+    container.className = 'd-flex flex-column gap-2 overflow-auto';
+    container.style.maxHeight = '100%';
+    container.style.height = '95%';
+    container.style.scrollbarColor = 'var(--light-pink) transparent';
 
-            // Add title
-            const title = document.createElement('div');
-            title.className = 'document-title';
-            title.textContent = doc.title;
-            title.style.textAlign = 'center';
-            title.style.fontSize = '14px';
-            title.style.wordBreak = 'break-word';
+    documentsList.forEach(doc => {
+        const docItem = document.createElement('div');
+        docItem.className = 'document-item p-2';
+        docItem.style.cursor = 'pointer';
+        docItem.style.transition = 'all 0.2s ease';
+        docItem.style.wordBreak = 'break-word';
+        docItem.onclick = () => openDocument(doc.id);
 
-            docItem.appendChild(icon);
-            docItem.appendChild(title);
+        // Add hover effects
+        docItem.onmouseover = function() {
+            this.classList.add('shadow');
+            this.style.background = 'var(--light-pink)';
+        };
+        
+        docItem.onmouseout = function() {
+            this.classList.remove('shadow');
+            this.style.background = '';
+            this.style.borderColor = '';
+            this.style.transform = 'translateY(0)';
+        };
 
-            grid.appendChild(docItem);
-        });
+        // Create flex container for icon + title
+        const contentContainer = document.createElement('div');
+        contentContainer.className = 'd-flex align-items-center gap-3';
+        
+        // Add icon based on document type
+        const icon = document.createElement('i');
+        switch(doc.id) {
+            case 'doc1':
+                icon.className = 'hn hn-user-solid';
+                break;
+            case 'doc2':
+                icon.className = 'hn hn-bullet-list-solid';
+                break;
+            case 'doc3':
+                icon.className = 'hn hn-writing';
+                break;
+            case 'doc4':
+                icon.className = 'hn hn-code-solid';
+                break;
+            case 'doc5':
+                icon.className = 'hn hn-startups';
+                break;
+            default:
+                icon.className = 'hn hn-startups';
+        }
+        icon.style.fontSize = '18px';
 
-        windowBody.appendChild(grid);
+        // Add title with Bootstrap text classes
+        const title = document.createElement('div');
+        title.className = 'document-title fw-medium';
+        title.textContent = doc.title;
+        title.style.wordBreak = 'break-word';
+
+        // Add icon and title to flex container
+        contentContainer.appendChild(icon);
+        contentContainer.appendChild(title);
+
+        // Add flex container to document item
+        docItem.appendChild(contentContainer);
+        container.appendChild(docItem);
+    });
+
+    windowBody.appendChild(container);
+}
+
+function openDocument(docId) {
+    const doc = documentsList.find(d => d.id === docId);
+    if (!doc) return;
+
+    // If it's the resume and has a PDF URL, open Google Drive in new tab
+    if (docId === 'doc3' && doc.pdfUrl) {
+        window.open(doc.pdfUrl, '_blank');
+        return;
     }
 
-    function openDocument(docId) {
-        const doc = documentsList.find(d => d.id === docId);
-        if (!doc) return;
+    const windowBody = document.querySelector('#documents .window-body');
+    const documentsWindow = document.getElementById('documents');
+    if (!windowBody || !documentsWindow) return;
 
-        const windowBody = document.querySelector('#documents .window-body');
-        if (!windowBody) return;
+    // Clear the window
+    windowBody.innerHTML = '';
 
-        // Clear the window
-        windowBody.innerHTML = '';
+    // Create back button with Bootstrap classes
+    const backButton = document.createElement('button');
+    backButton.className = 'btn btn-lg mb-3';
+    backButton.title = 'Back to Documents';
 
-        // Create back button
-        const backButton = document.createElement('button');
-        backButton.textContent = '← Back';
-        backButton.style.marginBottom = '10px';
-        backButton.onclick = loadDocumentsWindow;
-        windowBody.appendChild(backButton);
+    // Resize window ONLY for Portfolio Overview
+    if (docId === 'doc1' || docId === 'doc2') {
+        documentsWindow.style.maxWidth = '80%';
+        documentsWindow.style.height = '70%';
+        // Center the window after resizing
+        centerWindow(documentsWindow);
+    } else {
+        // Reset to default size for other documents
+        documentsWindow.style.width = '400px';
+        documentsWindow.style.height = '300px';
+        centerWindow(documentsWindow);
+    }
 
-        // Show document content
-        const content = document.createElement('div');
+    // Store the original styles
+    const originalStyles = {
+        backgroundColor: 'var(--light-pink)',
+        color: 'var(--purple)',
+        borderTop: '3px solid var(--pink)',
+        borderLeft: '3px solid var(--pink)',
+        borderBottom: '3px solid var(--grape)',
+        borderRight: '3px solid var(--grape)'
+    };
+    
+    // Apply custom colors
+    backButton.style.backgroundColor = originalStyles.backgroundColor;
+    backButton.style.color = originalStyles.color;
+    backButton.style.border = originalStyles.border;
+    backButton.style.borderTop = originalStyles.borderTop;
+    backButton.style.borderLeft = originalStyles.borderLeft;
+    backButton.style.borderBottom = originalStyles.borderBottom;
+    backButton.style.borderRight = originalStyles.borderRight;
+    backButton.style.borderRadius = '0';
+    backButton.style.width = '32px';
+    backButton.style.height = '32px';
+    backButton.style.display = 'flex';
+    backButton.style.alignItems = 'center';
+    backButton.style.justifyContent = 'center';
+
+    // Create icon element
+    const backIcon = document.createElement('i');
+    backIcon.className = 'hn hn-arrow-left-solid';
+    
+    // Add icon and text to button
+    backButton.appendChild(backIcon);
+
+    // Add hover effects
+    backButton.onmouseover = function() {
+        this.style.backgroundColor = 'var(--puce)';
+        this.style.color = 'var(--light-pink)';
+    };
+    
+    backButton.onmouseout = function() {
+        // Reset to original styles
+        this.style.backgroundColor = originalStyles.backgroundColor;
+        this.style.color = originalStyles.color;
+        this.style.border = originalStyles.border;
+        this.style.borderTop = originalStyles.borderTop;
+        this.style.borderLeft = originalStyles.borderLeft;
+        this.style.borderBottom = originalStyles.borderBottom;
+        this.style.borderRight = originalStyles.borderRight;
+    };
+    
+    backButton.onclick = loadDocumentsWindow;
+    windowBody.appendChild(backButton);
+
+    // Create scrollable container with proper spacing
+    const scrollContainer = document.createElement('div');
+    scrollContainer.style.overflowY = 'auto';
+    scrollContainer.style.maxHeight = '85%';
+    scrollContainer.style.padding = '10px';
+    scrollContainer.style.boxSizing = 'border-box';
+
+    // Show document content - enhanced styling for overview
+    const content = document.createElement('div');
+    
+    if (docId === 'doc1') {
+        // Enhanced styling for Portfolio Overview text
+        content.innerHTML = `
+            <div 
+            class="p-2" 
+            style="
+                background: var(--light-pink);
+                border: double 7px;
+                border-color: var(--pink);
+                color: var(--purple);
+                font-size: 15px;
+                line-height: 1.7;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            ">
+                <h3 
+                class="mb-4" 
+                style="
+                    color: var(--puce);
+                    text-align: center;
+                    border-bottom: 2px solid var(--pink);
+                ">
+                Welcome to My Digital Portfolio!
+                </h3>
+                
+                <p 
+                class="mb-4" 
+                style="
+                    font-size: 12px;
+                    text-align: justify;
+                ">
+                I'm a passionate developer specializing in creating engaging, user-centered digital experiences. With a background in both design and development, I bridge the gap between creative vision and technical execution.
+                </p>
+                
+                <h4 
+                class="mb-4" 
+                style="
+                    color: var(--puce);
+                    font-size: 16px;
+                    border-bottom: 2px solid var(--pink);
+                    text-align: center;
+                ">
+                WHAT I OFFER:
+                </h4>
+                
+                <ul 
+                class="mb-4 p-0"
+                style="
+                    font-size: 12px;
+                    list-style: none;
+                ">
+            <li 
+            class="mb-3"
+            style="display: flex; align-items: flex-start;">
+
+                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
+
+                <span>Here is what I can do whahahahaha</span>
+            </li>
+            <li 
+            class="mb-3"
+            style="display: flex; align-items: flex-start;">
+                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
+                <span>Here is what I can do whahahahaha</span>
+            </li>
+            <li 
+            class="mb-3"
+            style="display: flex; align-items: flex-start;">
+                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
+                <span>Here is what I can do whahahahaha</span>
+            </li>
+            <li 
+            class="mb-3"
+            style="display: flex; align-items: flex-start;">
+                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
+                <span>Here is what I can do whahahahaha</span>
+            </li>
+            <li style="8px; display: flex; align-items: flex-start;">
+                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
+                <span><strong>Here is what I can do whahahahaha</span>
+            </li>
+        </ul>
+                
+                <div style="
+                    
+        ">
+            <h5 
+            class="mb-3"
+            style="
+                color: var(--puce);
+                border-bottom: 2px solid var(--pink);
+                font-size: 16px;
+                text-align: center;
+            ">WEBSITE GUIDE</h5>
+            <ul 
+            class="mb-3 p-0"
+            style="
+                list-style: none;
+                font-size: 12px;
+            ">
+                <li 
+                class="mb-3"
+                style="display: flex; align-items: flex-start;">
+                    <i class="hn hn-folder-open-solid me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
+                    <span><strong style="color: var(--neon-pink);">Documents</strong> <br>Explore my work, skills, and background</span>
+                </li>
+                <li 
+                class="mb-3"
+                style="display: flex; align-items: flex-start;">
+                    <i class="hn hn-web3 me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
+                    <span><strong style="color: var(--neon-pink);">Meowser</strong> <br> Browse external links and projects</span>
+                </li>
+                <li 
+                class="mb-3"
+                style="display: flex; align-items: flex-start;">
+                    <i class="hn hn-writing me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
+                    <span><strong style="color: var(--neon-pink);">Notes</strong> <br> Read additional information and thoughts</span>
+                </li>
+                <li 
+                class="mb-3"
+                style="display: flex; align-items: flex-start;">
+                    <i class="hn hn-gaming me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
+                    <span><strong style="color: var(--neon-pink);">Pounce</strong> <br> Play interactive games and demos</span>
+                </li>
+                <li 
+                class="mb-3"
+                style="display: flex; align-items: flex-start;">
+                    <i class="hn hn-music-solid me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
+                    <span><strong style="color: var(--neon-pink);">Spotify</strong> <br> Check out my music preferences</span>
+                </li>
+            </ul>
+        </div>
+            </div>
+        `;
+    
+        } else if (docId === 'doc2') {
+    // Projects content with same styling as Overview
+    content.innerHTML = `
+        <div style="
+            background: var(--light-pink);
+            border: double 7px;
+            border-color: var(--pink);
+            color: var(--purple);
+            font-size: 15px;
+            line-height: 1.7;
+        " class="p-4">
+            <h3 
+            class="mb-4"
+            style="
+                color: var(--puce);
+                text-align: center;
+                border-bottom: 2px solid var(--pink);
+            ">My Projects</h3>
+            
+            <p 
+            class="mb-4"
+            style="
+                font-size: 12px;
+                text-align: justify;
+            ">Here are some of the projects I've built to showcase my skills and creativity:</p>
+            
+            <div style="
+            ">
+                <h6 
+                class="mb-4"
+                style="
+                    color: var(--puce);
+                    border-bottom: 2px solid var(--pink);
+                    text-align: center;
+                ">Featured Projects</h6>
+                
+                <ul style="
+                    margin-left: 0;
+                    list-style: none;
+                    padding-left: 0;
+                ">
+                    <li class="mb-4">
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
+                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
+
+                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
+                                
+                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
+                                
+                                <br> 
+                                
+                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
+                                
+                            </span>
+                        </div>
+
+                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
+                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
+                        </a>
+                    </li>
+
+                    <li class="mb-4">
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
+                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
+
+                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
+                                
+                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
+                                
+                                <br> 
+                                
+                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
+                                
+                            </span>
+                        </div>
+
+                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
+                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
+                        </a>
+                    </li>
+
+                    <li class="mb-4">
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
+                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
+
+                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
+                                
+                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
+                                
+                                <br> 
+                                
+                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
+                                
+                            </span>
+                        </div>
+
+                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
+                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
+                        </a>
+                    </li>
+
+                    <li class="mb-4">
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
+                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
+
+                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
+                                
+                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
+                                
+                                <br> 
+                                
+                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
+                                
+                            </span>
+                        </div>
+
+                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
+                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
+                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
+
+                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
+                                
+                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
+                                
+                                <br> 
+                                
+                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
+                                
+                            </span>
+                        </div>
+
+                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
+                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    `;
+    }   else {
+        // Default styling for other documents
+        content.className = 'text-break lh-base';
         content.textContent = doc.content;
         content.style.whiteSpace = 'pre-wrap';
-        content.style.marginTop = '10px';
-        windowBody.appendChild(content);
     }
 
-    // Hook into your openWindow function
-    const originalOpenWindow = openWindow;
-    openWindow = function(windowId) {
-        originalOpenWindow(windowId);
+    scrollContainer.appendChild(content);
+    windowBody.appendChild(scrollContainer);
+}
 
-        if (windowId === 'documents') {
-            loadDocumentsWindow();
-        }
+function loadBrowserWindow() {
+    const windowBody = document.querySelector('#browser .window-body');
+    if (!windowBody) return;
+
+    // Clear existing content
+    windowBody.innerHTML = '';
+
+    // Create container for Google CSE
+    const browserContainer = document.createElement('div');
+    browserContainer.className = 'h-100 d-flex flex-column';
+    browserContainer.style.overflow = 'hidden';
+
+    // Add Google CSE search box and results
+    browserContainer.innerHTML = `
+        <div class="p-3" style="border-bottom: 2px solid var(--pink); background: var(--light-pink);">
+            <div class="gcse-searchbox"></div>
+        </div>
+        <div class="flex-grow-1 p-3" style="overflow-y: auto;">
+            <div class="gcse-searchresults"></div>
+        </div>
+    `;
+
+    windowBody.appendChild(browserContainer);
+
+    // Load Google CSE script
+    loadGoogleCSE();
+}
+
+function loadGoogleCSE() {
+    // Remove existing Google CSE script if any
+    const existingScript = document.querySelector('script[src*="cse.google.com"]');
+    if (existingScript) {
+        existingScript.remove();
+    }
+
+    // Create new script
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://cse.google.com/cse.js?cx=90c028202ba074e6a';
+    
+    script.onload = function() {
+        // Initialize the search after script loads
+        setTimeout(() => {
+            if (window.google && window.google.search) {
+                // The search should automatically initialize
+                console.log('Google CSE loaded successfully');
+            }
+        }, 1000);
     };
-        
+
+    document.head.appendChild(script);
+}
+
+function loadMusicWindow() {
+    const windowBody = document.querySelector('#music .window-body');
+    const musicWindow = document.getElementById('music');
+    if (!windowBody || !musicWindow) return;
+
+    // Clear existing content
+    windowBody.innerHTML = '';
+
+    // Set background and remove all spacing
+    windowBody.style.backgroundColor = '#191414';
+    windowBody.style.maxHeight = '90%';
+    windowBody.style.padding = '0';
+    windowBody.style.margin = '0';
+    windowBody.style.border = 'none';
+    windowBody.style.overflow = 'hidden';
+
+    // Use larger window size for the large player
+    musicWindow.style.width = '400px';
+    musicWindow.style.height = '500px';
+    centerWindow(musicWindow);
+
+    // Add Spotify with large player parameter
+    windowBody.innerHTML = `
+        <iframe style="width:100%; height:100%; border:none; display:block;" 
+                src="https://open.spotify.com/embed/playlist/1L9ZlJvLKseFYG8qjmMfUI?utm_source=generator&size=large" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+        </iframe>
+    `;
+}
+
+function loadRecycleBinWindow() {
+    const windowBody = document.querySelector('#recycleBin .window-body');
+    if (!windowBody) return;
+
+    // Clear existing content
+    windowBody.innerHTML = '';
+
+    // Create recycle bin content
+    const binContainer = document.createElement('div');
+    binContainer.className = 'h-100 d-flex flex-column p-0';
+
+    binContainer.innerHTML = `
+ 
+        <div class="flex-grow-1 overflow-auto">
+            <!-- Premade files that users can "open" -->
+            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
+                    <div>
+                        <strong 
+                        style="color: var(--purple); font-size:16px;">resume_old.docx
+                        </strong>
+                        <br>
+                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-grow-1 overflow-auto">
+            <!-- Premade files that users can "open" -->
+            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
+                    <div>
+                        <strong 
+                        style="color: var(--purple); font-size:16px;">resume_old.docx
+                        </strong>
+                        <br>
+                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-grow-1 overflow-auto">
+            <!-- Premade files that users can "open" -->
+            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
+                    <div>
+                        <strong 
+                        style="color: var(--purple); font-size:16px;">resume_old.docx
+                        </strong>
+                        <br>
+                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-grow-1 overflow-auto">
+            <!-- Premade files that users can "open" -->
+            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
+                    <div>
+                        <strong 
+                        style="color: var(--purple); font-size:16px;">resume_old.docx
+                        </strong>
+                        <br>
+                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-grow-1 overflow-auto">
+            <!-- Premade files that users can "open" -->
+            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
+                    <div>
+                        <strong 
+                        style="color: var(--purple); font-size:16px;">resume_old.docx
+                        </strong>
+                        <br>
+                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    windowBody.appendChild(binContainer);
+}
+
+// Function to handle opening recycle bin files
+function openRecycleFile(filename) {
+    alert(`Restoring file: ${filename}\n\nThis might take forever.`);
+}
+
+// Hook into your openWindow function
+const originalOpenWindow = openWindow;
+openWindow = function(windowId) {
+    originalOpenWindow(windowId);
+
+    if (windowId === 'documents') {
+        loadDocumentsWindow();
+    } else if (windowId === 'browser') {
+        loadBrowserWindow();
+    } else if (windowId === 'music') {
+        loadMusicWindow();
+    } else if (windowId === 'recycleBin') {
+        loadRecycleBinWindow();
+    }
+};
+    
+
         // Window Management
  function openWindow(windowId) {
     const win = document.getElementById(windowId);
@@ -856,23 +1512,23 @@
         function getWindowIcon(windowId) {
             switch(windowId) {
                 case 'myComputer':
-                    return '<i class="fas fa-desktop taskbar-icon"></i>';
+                    return '<i class="hn hn-technology"></i>';
                 case 'documents':
-                    return '<i class="fas fa-folder taskbar-icon"></i>';
+                    return '<i class="hn hn-folder-open-solid"></i>';
                 case 'recycleBin':
-                    return '<i class="fas fa-trash-alt taskbar-icon"></i>';
+                    return '<i class="hn hn-trash-alt-solid"></i>';
                 case 'browser':
-                    return '<i class="fas fa-globe taskbar-icon"></i>';
+                    return '<i class="hn hn-web3"></i>';
                 case 'notepad':
-                    return '<i class="fas fa-file-alt taskbar-icon"></i>';
+                    return '<i class="hn hn-writing"></i>';
                 case 'games':
-                    return '<i class="fas fa-gamepad taskbar-icon"></i>';
-                case 'settings':
-                    return '<i class="fas fa-cog taskbar-icon"></i>';
+                    return '<i class="hn hn-gaming"></i>';
+                case 'precious':
+                    return '<i class="hn hn-image-solid"></i>';
                 case 'music':
-                    return '<i class="fas fa-music taskbar-icon"></i>';
+                    return '<i class="hn hn-music-solid"></i>';
                 default:
-                    return '<i class="fas fa-window taskbar-icon"></i>';
+                    return '<i class="hn hn-clock-solid"></i>';
             }
         }
         
