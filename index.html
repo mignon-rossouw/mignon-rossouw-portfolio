@@ -114,7 +114,87 @@ body {
     padding: 0 10px;
     display: flex;
     align-items: center;
+    border-top: 3px solid var(--light-pink);
 }
+
+.taskbar-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Base star style */
+.star, .medium, .tiny, .fairy { 
+  width: 1px; 
+  height: 1px; 
+  position: absolute; 
+  image-rendering: pixelated; 
+  transform: scale(2);
+  transform-origin: top left; 
+}
+
+/* ===== STAR TYPES ===== */
+.star::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 2px;
+  background: var(--white);
+  box-shadow:
+    0 -2px var(--light-pink),
+    0 2px var(--light-pink),
+    -2px 0 var(--light-pink),
+    2px 0 var(--light-pink);
+}
+
+.tiny::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 2px;
+  background: var(--light-pink);
+}
+
+.fairy::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 1px;
+  background: var(--light-pink);
+}
+
+/* ===== POSITIONS ===== */
+.s1 { top: 17%; left: 16%; }
+.s2 { top: 57%; left: 18%; }
+.s3 { top: 77%; left: 97%; }
+.s4 { top: 54%; left: 84%; }
+.s5 { top: 23%; left: 85%; }
+.s6 { top: 29%; left: 65%; }
+.s7 { top: 43%; left: 45%; }
+.s8 { top: 78%; left: 37%; }
+
+.t1 { top: 67%; left: 30%; }
+.t2 { top: 25%; left: 22%; }
+.t3 { top: 70%; left: 50%; }
+.t4 { top: 79%; left: 86%; }
+.t5 { top: 48%; left: 68%; }
+.t6 { top: 55%; left: 98%; }
+.t7 { top: 35%; left: 35%; }
+.t8 { top: 85%; left: 17%; }
+
+
+.f1 { top: 8%; left: 19%; }
+.f2 { top: 80%; left: 66%; }
+.f3 { top: 26%; left: 83%; }
+.f4 { top: 72%; left: 16%; }
+.f5 { top: 32%; left: 67%; }
+.f6 { top: 59%; left: 34%; }
+.f7 { top: 54%; left: 43%; }
+
 
 .start-button {
     color: var(--light-pink);
@@ -132,7 +212,7 @@ body {
 
 .start-button:hover {
     background-color: var(--grape);
-    color: var(--purple);
+    color: var(--light-pink);
     border-bottom: 3px solid var(--purple);
     border-right: 3px solid var(--purple);
 }
@@ -292,6 +372,8 @@ body {
     width: 20px;
     text-align: center;
 }
+
+
     </style>
 </head>
 <body>
@@ -633,7 +715,36 @@ body {
         </div>
         <div class="system-tray cursor-pointer">
             <i class="hn hn-sound-on-solid me-3 cursor-pointer fs-5"></i>
-            <span id="clock" class="cursor-default fs-6">12:00 PM</span>
+            <span id="clock" class="cursor-default fs-6"></span>
+        </div>
+
+        <!-- Stars container -->
+        <div class="taskbar-stars">
+            <div class="star s1"></div>
+            <div class="star s2"></div>
+            <div class="star s3"></div>
+            <div class="star s4"></div>
+            <div class="star s5"></div>
+            <div class="star s6"></div>
+            <div class="star s7"></div>
+            <div class="star s8"></div>
+
+            <div class="tiny t1"></div>
+            <div class="tiny t2"></div>
+            <div class="tiny t3"></div>
+            <div class="tiny t4"></div>
+            <div class="tiny t5"></div>
+            <div class="tiny t6"></div>
+            <div class="tiny t7"></div>
+            <div class="tiny t8"></div>
+
+            <div class="fairy f1"></div>
+            <div class="fairy f2"></div>
+            <div class="fairy f3"></div>
+            <div class="fairy f4"></div>
+            <div class="fairy f5"></div>
+            <div class="fairy f6"></div>
+            <div class="fairy f7"></div>
         </div>
     </div>
 
@@ -650,7 +761,12 @@ body {
         function updateClock() {
             const now = new Date();
             const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            document.getElementById('clock').textContent = timeString;
+            const clockElement = document.getElementById('clock');
+                clockElement.textContent = timeString;
+                clockElement.style.userSelect = 'none'; // Prevent text selection
+                clockElement.style.webkitUserSelect = 'none'; // For Safari
+                clockElement.style.mozUserSelect = 'none'; // For Firefox
+                clockElement.style.msUserSelect = 'none';
         }
         
         setInterval(updateClock, 1000);
@@ -680,24 +796,11 @@ body {
     const documentsList = [
         {   
             id: 'doc1', 
-            title: 'Portfolio Overview', 
-            content: `Welcome to my digital portfolio!
-
-            I'm a passionate developer specializing in creating engaging, user-centered digital experiences. With a background in both design and development, I bridge the gap between creative vision and technical execution.
-
-            WHAT I OFFER:
-            - Full-stack web development
-            - Responsive design implementation
-            - Clean, maintainable code
-            - Problem-solving mindset
-            - Continuous learning approach
-
-            This portfolio showcases my journey, projects, and skills - feel free to explore and get in touch!`
+            title: 'Portfolio Overview' 
         },
         {   
             id: 'doc2', 
-            title: 'Projects', 
-            content: 'A list of my projects, with links and descriptions of what I built.' 
+            title: 'Projects'
         },
         {   
             id: 'doc3', 
@@ -707,18 +810,15 @@ body {
         },
         { 
             id: 'doc4', 
-            title: 'Skills', 
-            content: 'Programming languages, frameworks, and tools I am proficient in.' 
+            title: 'Skills'
         },
         { 
             id: 'doc5', 
-            title: 'Fun Facts', 
-            content: 'A playful document with hobbies, interests, and personal tidbits.' 
+            title: 'Fun Facts' 
         },
         { 
             id: 'doc6', 
-            title: 'Fun Facts', 
-            content: 'A playful document with hobbies, interests, and personal tidbits.' 
+            title: 'Stuff'
         }
     ];
 
@@ -747,7 +847,7 @@ body {
 
     documentsList.forEach(doc => {
         const docItem = document.createElement('div');
-        docItem.className = 'document-item p-2';
+        docItem.className = 'document-item p-2 me-3';
         docItem.style.cursor = 'pointer';
         docItem.style.transition = 'all 0.2s ease';
         docItem.style.wordBreak = 'break-word';
@@ -788,6 +888,9 @@ body {
             case 'doc5':
                 icon.className = 'hn hn-startups';
                 break;
+            case 'doc6':
+                icon.className = 'hn hn-question-solid';
+                break;
             default:
                 icon.className = 'hn hn-startups';
         }
@@ -795,7 +898,7 @@ body {
 
         // Add title with Bootstrap text classes
         const title = document.createElement('div');
-        title.className = 'document-title fw-medium';
+        title.className = 'document-title';
         title.textContent = doc.title;
         title.style.wordBreak = 'break-word';
 
@@ -834,7 +937,7 @@ function openDocument(docId) {
     backButton.title = 'Back to Documents';
 
     // Resize window ONLY for Portfolio Overview
-    if (docId === 'doc1' || docId === 'doc2') {
+    if (docId === 'doc1' || docId === 'doc2' || docId === 'doc4' || docId === 'doc5' || docId === 'doc6') {
         documentsWindow.style.maxWidth = '80%';
         documentsWindow.style.height = '70%';
         // Center the window after resizing
@@ -912,7 +1015,7 @@ function openDocument(docId) {
         // Enhanced styling for Portfolio Overview text
         content.innerHTML = `
             <div 
-            class="p-2" 
+            class="p-4 me-2" 
             style="
                 background: var(--light-pink);
                 border: double 7px;
@@ -923,13 +1026,18 @@ function openDocument(docId) {
                 box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             ">
                 <h3 
-                class="mb-4" 
-                style="
-                    color: var(--puce);
-                    text-align: center;
-                    border-bottom: 2px solid var(--pink);
-                ">
-                Welcome to My Digital Portfolio!
+                class="mb-3 px-2 py-2"
+            style="
+                color: var(--puce);
+                background-color: var(--pink);
+                text-align: center;
+                border: none var(--light-pink);
+                outline: 3px dashed var(--pink);
+                outline-offset: 3px;
+                text-shadow: 2px 2px 0px var(--light-pink);
+                user-select: none;
+            ">
+                Welcome to My Portfolio!
                 </h3>
                 
                 <p 
@@ -937,17 +1045,21 @@ function openDocument(docId) {
                 style="
                     font-size: 12px;
                     text-align: justify;
+                    user-select: none;
                 ">
-                I'm a passionate developer specializing in creating engaging, user-centered digital experiences. With a background in both design and development, I bridge the gap between creative vision and technical execution.
+                I’m an aspiring frontend developer who thrives on crafting fun, engaging, and user-centered digital experiences. With one foot in design and the other in development, I happily connect creative ideas with smooth, technical execution.
                 </p>
                 
                 <h4 
-                class="mb-4" 
+                class="p-2 mb-4 fs-6" 
                 style="
                     color: var(--puce);
-                    font-size: 16px;
-                    border-bottom: 2px solid var(--pink);
                     text-align: center;
+                    border: none var(--light-pink);
+                    outline: 3px dashed var(--pink);
+                    outline-offset: 3px;
+                    text-shadow: 2px 2px 0px var(--pink);
+                    user-select: none;
                 ">
                 WHAT I OFFER:
                 </h4>
@@ -957,6 +1069,7 @@ function openDocument(docId) {
                 style="
                     font-size: 12px;
                     list-style: none;
+                    user-select: none;
                 ">
             <li 
             class="mb-3"
@@ -964,29 +1077,29 @@ function openDocument(docId) {
 
                 <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
 
-                <span>Here is what I can do whahahahaha</span>
+                <span>/ᐠ •̀ ˕ •́ マ</span>
             </li>
             <li 
             class="mb-3"
             style="display: flex; align-items: flex-start;">
                 <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
-                <span>Here is what I can do whahahahaha</span>
+                <span>/ᐠ •̀ ˕ •́ マ</span>
             </li>
             <li 
             class="mb-3"
             style="display: flex; align-items: flex-start;">
                 <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
-                <span>Here is what I can do whahahahaha</span>
+                <span>/ᐠ •̀ ˕ •́ マ</span>
             </li>
             <li 
             class="mb-3"
             style="display: flex; align-items: flex-start;">
                 <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
-                <span>Here is what I can do whahahahaha</span>
+                <span>/ᐠ •̀ ˕ •́ マ</span>
             </li>
             <li style="8px; display: flex; align-items: flex-start;">
                 <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
-                <span><strong>Here is what I can do whahahahaha</span>
+                <span><strong>/ᐠ •̀ ˕ •́ マ</span>
             </li>
         </ul>
                 
@@ -994,13 +1107,16 @@ function openDocument(docId) {
                     
         ">
             <h5 
-            class="mb-3"
-            style="
-                color: var(--puce);
-                border-bottom: 2px solid var(--pink);
-                font-size: 16px;
-                text-align: center;
-            ">WEBSITE GUIDE</h5>
+            class="p-2 mb-4 fs-6" 
+                style="
+                    color: var(--puce);
+                    text-align: center;
+                    border: none var(--light-pink);
+                    outline: 3px dashed var(--pink);
+                    outline-offset: 3px;
+                    text-shadow: 2px 2px 0px var(--pink);
+                    user-select: none;
+                ">WEBSITE GUIDE</h5>
             <ul 
             class="mb-3 p-0"
             style="
@@ -1008,34 +1124,87 @@ function openDocument(docId) {
                 font-size: 12px;
             ">
                 <li 
-                class="mb-3"
-                style="display: flex; align-items: flex-start;">
-                    <i class="hn hn-folder-open-solid me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
-                    <span><strong style="color: var(--neon-pink);">Documents</strong> <br>Explore my work, skills, and background</span>
+                class="mb-4 p-2"
+                style=" display: flex; 
+                        align-items: 
+                        flex-start; 
+                        background-color: var(--pink);
+                        border: none var(--light-pink);
+                        outline: 3px solid var(--pink);
+                        outline-offset: 3px;
+                        user-select: none;
+                        ">
+                    <i class="hn hn-folder-open-solid me-3" style=" color: var(--light-pink);
+                            margin-right: 8px; 
+                            margin-top: 2px;
+                            "></i>
+                    <span><strong style="color: var(--neon-pink);">Documents</strong> <br>Explore my stuff. ( ↀᴥↀ )ฅ</span>
                 </li>
+
                 <li 
-                class="mb-3"
-                style="display: flex; align-items: flex-start;">
+                class="mb-4 p-2"
+                style=" display: flex; 
+                        align-items: 
+                        flex-start; 
+                        background-color: var(--pink);
+                        border: none var(--light-pink);
+                        outline: 3px solid var(--pink);
+                        outline-offset: 3px;
+                        user-select: none;
+                        ">
                     <i class="hn hn-web3 me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
-                    <span><strong style="color: var(--neon-pink);">Meowser</strong> <br> Browse external links and projects</span>
+                    <span><strong style="color: var(--neon-pink);">Meowser</strong> <br> You can browse a.n.y.t.h.i.n.g. </span>
                 </li>
+
                 <li 
-                class="mb-3"
-                style="display: flex; align-items: flex-start;">
-                    <i class="hn hn-writing me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
-                    <span><strong style="color: var(--neon-pink);">Notes</strong> <br> Read additional information and thoughts</span>
+                class="mb-4 p-2"
+                style=" display: flex; 
+                        align-items: 
+                        flex-start; 
+                        background-color: var(--pink);
+                        border: none var(--light-pink);
+                        outline: 3px solid var(--pink);
+                        outline-offset: 3px;
+                        user-select: none;
+                        ">
+                    <i class="hn hn-writing me-3" style="color: var(--light-pink);margin-right: 8px; margin-top: 2px;"></i>
+                    <span><strong style="color: var(--neon-pink);">Notes</strong> <br> Secret thoughts. Don't go through this...</span>
                 </li>
+
                 <li 
-                class="mb-3"
-                style="display: flex; align-items: flex-start;">
-                    <i class="hn hn-gaming me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
-                    <span><strong style="color: var(--neon-pink);">Pounce</strong> <br> Play interactive games and demos</span>
+                class="mb-4 p-2"
+                style=" display: flex; 
+                        align-items: 
+                        flex-start; 
+                        background-color: var(--pink);
+                        border: none var(--light-pink);
+                        outline: 3px solid var(--pink);
+                        outline-offset: 3px;
+                        user-select: none;
+                        ">
+                    <i class="hn hn-gaming me-3" style="color: var(--light-pink);margin-right: 8px; margin-top: 2px;"></i>
+                    <span><strong style="color: var(--neon-pink);">Pounce</strong> <br> Cat game I made. Coming soon <br> ≽(-⩊-マ≼</span>
                 </li>
+
                 <li 
-                class="mb-3"
-                style="display: flex; align-items: flex-start;">
-                    <i class="hn hn-music-solid me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
-                    <span><strong style="color: var(--neon-pink);">Spotify</strong> <br> Check out my music preferences</span>
+                class="mb-3 p-2"
+                style=" display: flex; 
+                        align-items: 
+                        flex-start; 
+                        background-color: var(--pink);
+                        border: none var(--light-pink);
+                        outline: 3px solid var(--pink);
+                        outline-offset: 3px;
+                        user-select: none;
+                ">
+
+                    <i class="hn hn-music-solid me-3" style="color: var(--light-pink);margin-right: 8px; margin-top: 2px;"></i>
+                    <span><strong style="color: var(--neon-pink);">Spotify</strong> 
+                        
+                        <br> 
+                        Check out my playlist on Spotify!
+                        
+                        </span>
                 </li>
             </ul>
         </div>
@@ -1052,13 +1221,18 @@ function openDocument(docId) {
             color: var(--purple);
             font-size: 15px;
             line-height: 1.7;
-        " class="p-4">
+        " class="p-4 me-2">
             <h3 
-            class="mb-4"
+            class="mb-3 px-2 py-2"
             style="
                 color: var(--puce);
+                background-color: var(--pink);
                 text-align: center;
-                border-bottom: 2px solid var(--pink);
+                border: none var(--light-pink);
+                outline: 3px dashed var(--pink);
+                outline-offset: 3px;
+                text-shadow: 2px 2px 0px var(--light-pink);
+                user-select: none;
             ">My Projects</h3>
             
             <p 
@@ -1066,16 +1240,20 @@ function openDocument(docId) {
             style="
                 font-size: 12px;
                 text-align: justify;
+                text-shadow: 1px 1px 0px var(--pink);
+                user-select: none;
             ">Here are some of the projects I've built to showcase my skills and creativity:</p>
             
             <div style="
             ">
                 <h6 
-                class="mb-4"
+                class="mb-3 px-2 py-2"
                 style="
                     color: var(--puce);
-                    border-bottom: 2px solid var(--pink);
+                    border: 3px dashed var(--pink);
                     text-align: center;
+                    text-shadow: 1px 2px 0px var(--pink);
+                    user-select: none;
                 ">Featured Projects</h6>
                 
                 <ul style="
@@ -1083,109 +1261,726 @@ function openDocument(docId) {
                     list-style: none;
                     padding-left: 0;
                 ">
-                    <li class="mb-4">
+
+                <!-- ##### Project 1 ##### -->
+                    <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
                         <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
                             <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
 
-                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
+                            <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
                                 
-                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
+                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
+                                1px 1px 1px var(--light-pink);
+                                user-select: none;">Portfolio Website</strong> 
                                 
                                 <br> 
                                 
-                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
+                                <p
+                                class="mt-2"
+                                style="text-shadow: 
+                                1px 1px 1px var(--puce);
+                                user-select: none;"
+                                >
+                                This retro-inspired desktop simulator portfolio built with HTML, CSS, Bootstrap, and JavaScript.
+                                </p>
                                 
                             </span>
                         </div>
 
-                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
-                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
+                        
+                        <a href="#"
+                            class="p-2"
+                            style="
+                                color: var(--grape);
+                                text-decoration: none;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 4px;
+                                margin-left: 28px;
+                                font-size:10px;
+                                background-color: var(--pink);
+                                border: 3px outset var(--light-pink);
+                                text-shadow: 1px 1px 0px var(--light-pink);
+                            ">
+                            <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
                         </a>
                     </li>
 
-                    <li class="mb-4">
+                    <!-- ##### Project 2 ##### -->
+                    <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
                         <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
                             <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
 
-                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
+                            <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
                                 
-                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
+                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
+                                1px 1px 1px var(--light-pink);
+                                user-select: none;">Project 2</strong> 
                                 
                                 <br> 
                                 
-                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
+                                <p
+                                class="mt-2"
+                                style="text-shadow: 
+                                1px 1px 1px var(--puce);
+                                user-select: none;"
+                                >
+                                Coming soon ≽(-⩊-マ≼
+                                </p>
                                 
                             </span>
                         </div>
 
-                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
-                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
+                        
+                        <a href="#"
+                            class="p-2"
+                            style="
+                                color: var(--grape);
+                                text-decoration: none;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 4px;
+                                margin-left: 28px;
+                                font-size:10px;
+                                background-color: var(--pink);
+                                border: 3px outset var(--light-pink);
+                                text-shadow: 1px 1px 0px var(--light-pink);
+                            ">
+                            <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
                         </a>
                     </li>
 
-                    <li class="mb-4">
+                    <!-- ##### Project 3 ##### -->
+                    <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
                         <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
                             <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
 
-                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
+                            <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
                                 
-                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
+                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
+                                1px 1px 1px var(--light-pink);
+                                user-select: none;">Project 3</strong> 
                                 
                                 <br> 
                                 
-                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
+                                <p
+                                class="mt-2"
+                                style="text-shadow: 
+                                1px 1px 1px var(--puce);
+                                user-select: none;"
+                                >
+                                Coming soon ≽(-⩊-マ≼
+                                </p>
                                 
                             </span>
                         </div>
 
-                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
-                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
+                        
+                        <a href="#"
+                            class="p-2"
+                            style="
+                                color: var(--grape);
+                                text-decoration: none;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 4px;
+                                margin-left: 28px;
+                                font-size:10px;
+                                background-color: var(--pink);
+                                border: 3px outset var(--light-pink);
+                                text-shadow: 1px 1px 0px var(--light-pink);
+                            ">
+                            <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
+                        </a>
+                    </li>
+                    
+                    <!-- ##### Project 4 ##### -->
+                    <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
+                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
+
+                            <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
+                                
+                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
+                                1px 1px 1px var(--light-pink);
+                                user-select: none;">Project 4</strong> 
+                                
+                                <br> 
+                                
+                                <p
+                                class="mt-2"
+                                style="text-shadow: 
+                                1px 1px 1px var(--puce);
+                                user-select: none;"
+                                >
+                                Coming soon ≽(-⩊-マ≼
+                                </p>
+                                
+                            </span>
+                        </div>
+
+                        
+                        <a href="#"
+                            class="p-2"
+                            style="
+                                color: var(--grape);
+                                text-decoration: none;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 4px;
+                                margin-left: 28px;
+                                font-size:10px;
+                                background-color: var(--pink);
+                                border: 3px outset var(--light-pink);
+                                text-shadow: 1px 1px 0px var(--light-pink);
+                            ">
+                            <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
                         </a>
                     </li>
 
-                    <li class="mb-4">
+                    <!-- ##### Project 5 ##### -->
+                    <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
                         <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
                             <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
 
-                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
+                            <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
                                 
-                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
+                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
+                                1px 1px 1px var(--light-pink);
+                                user-select: none;">Project 5</strong> 
                                 
                                 <br> 
                                 
-                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
+                                <p
+                                class="mt-2"
+                                style="text-shadow: 
+                                1px 1px 1px var(--puce);
+                                user-select: none;"
+                                >
+                                Coming soon ≽(-⩊-マ≼
+                                </p>
                                 
                             </span>
                         </div>
 
-                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
-                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
-                        </a>
-                    </li>
-
-                    <li class="mb-2">
-                        <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
-                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
-
-                            <span style="font-size:12px; margin-bottom: 10px; color: var(--puce);">
-                                
-                                <strong style="color: var(--grape); font-size:14px; ">Portfolio Website</strong> 
-                                
-                                <br> 
-                                
-                                This retro-inspired Windows-style portfolio built with HTML, CSS, and JavaScript.
-                                
-                            </span>
-                        </div>
-
-                        <a href="#" style="color: var(--neon-pink); text-decoration: none; display: flex; align-items: center; margin-left: 28px; font-size:10px;">
-                            <i class="hn hn-globe-solid" style="color: var(--neon-pink); margin-right: 4px; font-size:15px;"></i>View Live
+                        
+                        <a href="#"
+                            class="p-2"
+                            style="
+                                color: var(--grape);
+                                text-decoration: none;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 4px;
+                                margin-left: 28px;
+                                font-size:10px;
+                                background-color: var(--pink);
+                                border: 3px outset var(--light-pink);
+                                text-shadow: 1px 1px 0px var(--light-pink);
+                            ">
+                            <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     `;
+    } else if (docId === 'doc4') {
+        // SKILLS CONTENT
+        content.innerHTML = `
+            <div 
+            class="p-4 me-2" 
+            style="
+                background: var(--light-pink);
+                border: double 7px;
+                border-color: var(--pink);
+                color: var(--purple);
+                font-size: 15px;
+                line-height: 1.7;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            ">
+                <h3 
+                class="mb-3 px-2 py-2"
+                style="
+                    color: var(--puce);
+                    background-color: var(--pink);
+                    text-align: center;
+                    border: none var(--light-pink);
+                    outline: 3px dashed var(--pink);
+                    outline-offset: 3px;
+                    text-shadow: 2px 2px 0px var(--light-pink);
+                    user-select: none;
+                ">
+                My Skills & Technologies
+                </h3>
+                
+                <p 
+                class="mb-4" 
+                style="
+                    font-size: 12px;
+                    text-align: justify;
+                    user-select: none;
+                ">
+                I'm constantly learning and expanding my skill set. Here's what I can bring to your project:
+                </p>
+                
+                <!-- FRONTEND SKILLS -->
+                <div class="mb-4">
+                    <h4 
+                    class="p-2 mb-3 fs-6" 
+                    style="
+                        color: var(--puce);
+                        text-align: center;
+                        border: none var(--light-pink);
+                        outline: 3px dashed var(--pink);
+                        outline-offset: 3px;
+                        text-shadow: 2px 2px 0px var(--pink);
+                        user-select: none;
+                    ">
+                    FRONTEND DEVELOPMENT
+                    </h4>
+                    
+                    <div class="row g-2">
+                        <!-- HTML5 -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                    style=" color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="hn hn-code-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">HTML5</strong>
+                                </div>
+                                <div style="margin-top: 4px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- CSS3 -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                    style=" color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="hn hn-code-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">CSS3</strong>
+                                </div>
+                                <div style="margin-top: 4px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 95%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- JavaScript -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                    style=" color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="hn hn-code-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">JavaScript</strong>
+                                </div>
+                                <div style="margin-top: 4px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bootstrap -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                    style=" color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="hn hn-code-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Bootstrap</strong>
+                                </div>
+                                <div style="margin-top: 4px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 95%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DESIGN & TOOLS -->
+                <div class="mb-4">
+                    <h4 
+                    class="p-2 mb-3 fs-6" 
+                    style="
+                        color: var(--puce);
+                        text-align: center;
+                        border: none var(--light-pink);
+                        outline: 3px dashed var(--pink);
+                        outline-offset: 3px;
+                        text-shadow: 2px 2px 0px var(--pink);
+                        user-select: none;
+                    ">
+                    DESIGN & TOOLS
+                    </h4>
+                    
+                    <div class="row g-2">
+                        <!-- Responsive Design -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-mobile-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Responsive Design</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 90%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- UI/UX Design -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-palette-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">UI/UX Design</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 70%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Git Version Control -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Git & GitHub</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- VS Code -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-laptop-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">VS Code</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 80%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SOFT SKILLS -->
+                    <div class="mb-4">
+                        <h4 
+                        class="p-2 mb-3 fs-6" 
+                        style="
+                            color: var(--puce);
+                            text-align: center;
+                            border: none var(--light-pink);
+                            outline: 3px dashed var(--pink);
+                            outline-offset: 3px;
+                            text-shadow: 2px 2px 0px var(--pink);
+                            user-select: none;
+                        ">
+                        SOFT SKILLS
+                        </h4>
+                        
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <div class="p-2 m-2" 
+                                    style="color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;
+                                            min-height: 80px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;">
+                                    <i class="hn hn-lightbulb-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
+                                    <div style="color: var(--grape); font-size: 11px;">Problem Solving</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 m-2" 
+                                    style="color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;
+                                            min-height: 80px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;">
+                                    <i class="hn hn-users-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
+                                    <div style="color: var(--grape); font-size: 11px;">Team Collaboration</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 m-2" 
+                                    style="color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;
+                                            min-height: 80px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;">
+                                    <i class="hn hn-comments-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
+                                    <div style="color: var(--grape); font-size: 11px;">Communication</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 m-2" 
+                                    style="color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;
+                                            min-height: 80px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;">
+                                    <i class="hn hn-bolt-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
+                                    <div style="color: var(--grape); font-size: 11px;">Fast Learning</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    
+                                    <!-- CURRENTLY LEARNING -->
+                                    <div>
+                                        <h4 
+                                        class="p-2 mb-3 fs-6" 
+                                        style="
+                                            color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px dashed var(--pink);
+                                            outline-offset: 3px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;
+                                        ">
+                                        CURRENTLY LEARNING
+                                        </h4>
+                                        
+                                        <div class="row g-2">
+                                            <div class="col-6">
+                                                <div class="p-2 m-2" 
+                                                        style=" color: var(--puce);
+                                                                text-align: center;
+                                                                border: none var(--light-pink);
+                                                                outline: 3px solid var(--pink);
+                                                                background-color: var(--pink);
+                                                                outline-offset: 2px;
+                                                                text-shadow: 2px 2px 0px var(--pink);
+                                                                user-select: none;">
+                                                    <div style="color: var(--grape); font-size: 11px; margin-top: 4px;">React.js</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="p-2 m-2" 
+                                                        style=" color: var(--puce);
+                                                                text-align: center;
+                                                                border: none var(--light-pink);
+                                                                outline: 3px solid var(--pink);
+                                                                background-color: var(--pink);
+                                                                outline-offset: 2px;
+                                                                text-shadow: 2px 2px 0px var(--pink);
+                                                                user-select: none;">
+                                                    <div style="color: var(--grape); font-size: 11px; margin-top: 4px;">Node.js</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+    }   else if (docId === 'doc5') {
+        // FUN FACTS CONTENT
+    content.innerHTML = `
+        <div 
+        class="p-4 me-2" 
+        style="
+            background: var(--light-pink);
+            border: double 7px;
+            border-color: var(--pink);
+            color: var(--purple);
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        ">
+            <h3 
+            class="mb-3 px-2 py-2"
+            style="
+                color: var(--puce);
+                background-color: var(--pink);
+                text-align: center;
+                border: none var(--light-pink);
+                outline: 3px dashed var(--pink);
+                outline-offset: 3px;
+                text-shadow: 2px 2px 0px var(--light-pink);
+                user-select: none;
+            ">
+            Fun Facts About Me
+            </h3>
+            
+            <!-- PROGRAMMING FUN FACTS -->
+            <div class="mb-4">
+                <p>
+                    Most of the designs were done by me. Icons are from Hackernoon.
+                </p>
+            </div>
+        </div>
+    `;
+
+    }   else if (docId === 'doc6') {
+        // stuff content
+        content.innerHTML = `
+        <div 
+        class="p-4 me-2" 
+        style="
+            background: var(--light-pink);
+            border: double 7px;
+            border-color: var(--pink);
+            color: var(--purple);
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        ">
+            <h3 
+            class="mb-3 px-2 py-2"
+            style="
+                color: var(--puce);
+                background-color: var(--pink);
+                text-align: center;
+                border: none var(--light-pink);
+                outline: 3px dashed var(--pink);
+                outline-offset: 3px;
+                text-shadow: 2px 2px 0px var(--light-pink);
+                user-select: none;
+            ">
+            Stuff
+            </h3>
+            
+            <!-- MAIN BODY CONTENT -->
+            <div class="mb-4">
+                <p>
+                    Coming soon ≽(-⩊-マ≼
+                </p>
+            </div>
+        </div>
+    `;
+
     }   else {
         // Default styling for other documents
         content.className = 'text-break lh-base';
@@ -1283,98 +2078,805 @@ function loadMusicWindow() {
     `;
 }
 
+// Recycle Bin data with icons
+const recycleBinList = [
+    {   
+        id: 'bin1', 
+        title: 'old_portfolio_v1.html',
+        type: 'html',
+        deletedDate: '2 days ago',
+        size: '15KB'
+    },
+    {   
+        id: 'bin2', 
+        title: 'resume_old.docx',
+        type: 'document',
+        deletedDate: '1 week ago', 
+        size: '45KB'
+    },
+    {   
+        id: 'bin3', 
+        title: 'project_sketch.fig',
+        type: 'design',
+        deletedDate: '3 days ago',
+        size: '128KB'
+    },
+    { 
+        id: 'bin4', 
+        title: 'notes_backup.txt',
+        type: 'text',
+        deletedDate: '5 days ago',
+        size: '8KB'
+    },
+    { 
+        id: 'bin5', 
+        title: 'cat_photos.zip',
+        type: 'archive',
+        deletedDate: '1 day ago',
+        size: '2.3MB'
+    },
+    { 
+        id: 'bin6', 
+        title: 'music_playlist.m3u',
+        type: 'music',
+        deletedDate: '2 weeks ago',
+        size: '4KB'
+    }
+];
+
 function loadRecycleBinWindow() {
     const windowBody = document.querySelector('#recycleBin .window-body');
-    if (!windowBody) return;
+    const recycleBinWindow = document.getElementById('recycleBin');
+    if (!windowBody || !recycleBinWindow) return;
 
     // Clear existing content
     windowBody.innerHTML = '';
 
-    // Create recycle bin content
-    const binContainer = document.createElement('div');
-    binContainer.className = 'h-100 d-flex flex-column p-0';
+    // RESET WINDOW SIZE to original
+    recycleBinWindow.style.width = '450px';
+    recycleBinWindow.style.height = '400px';
+    centerWindow(recycleBinWindow);
 
-    binContainer.innerHTML = `
- 
-        <div class="flex-grow-1 overflow-auto">
-            <!-- Premade files that users can "open" -->
-            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
-                <div class="d-flex align-items-center gap-3">
-                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
-                    <div>
-                        <strong 
-                        style="color: var(--purple); font-size:16px;">resume_old.docx
-                        </strong>
-                        <br>
-                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
-                    </div>
-                </div>
-            </div>
+    // Set pink scrollbar
+    windowBody.style.scrollbarColor = 'var(--pink) transparent';
 
-            <div class="flex-grow-1 overflow-auto">
-            <!-- Premade files that users can "open" -->
-            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
-                <div class="d-flex align-items-center gap-3">
-                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
-                    <div>
-                        <strong 
-                        style="color: var(--purple); font-size:16px;">resume_old.docx
-                        </strong>
-                        <br>
-                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
-                    </div>
-                </div>
-            </div>
+    // Create container for recycle bin items using Bootstrap
+    const container = document.createElement('div');
+    container.className = 'd-flex flex-column gap-2 overflow-auto p-3';
+    container.style.maxHeight = '100%';
+    container.style.height = '95%';
+    container.style.scrollbarColor = 'var(--pink) transparent';
 
-            <div class="flex-grow-1 overflow-auto">
-            <!-- Premade files that users can "open" -->
-            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
-                <div class="d-flex align-items-center gap-3">
-                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
-                    <div>
-                        <strong 
-                        style="color: var(--purple); font-size:16px;">resume_old.docx
-                        </strong>
-                        <br>
-                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
-                    </div>
-                </div>
-            </div>
+    // Add recycle bin items
+    recycleBinList.forEach(item => {
+        const binItem = document.createElement('div');
+        binItem.className = 'document-item p-2 me-3 mb-2';
+        binItem.style.cursor = 'pointer';
+        binItem.style.transition = 'all 0.2s ease';
+        binItem.style.wordBreak = 'break-word';
+        binItem.style.background = 'var(--light-pink)';
+        binItem.style.border = 'none';
+        binItem.style.outline = '2px dashed var(--puce)';
+        binItem.style.outlineOffset = '2px';
+        binItem.style.position = 'relative';
+        binItem.onclick = () => openRecycleItem(item.id);
 
-            <div class="flex-grow-1 overflow-auto">
-            <!-- Premade files that users can "open" -->
-            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
-                <div class="d-flex align-items-center gap-3">
-                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
-                    <div>
-                        <strong 
-                        style="color: var(--purple); font-size:16px;">resume_old.docx
-                        </strong>
-                        <br>
-                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
-                    </div>
-                </div>
-            </div>
+        // Add hover effects
+        binItem.onmouseover = function() {
+            this.classList.add('shadow');
+            this.style.background = 'var(--pink)';
+        };
+        
+        binItem.onmouseout = function() {
+            this.classList.remove('shadow');
+            this.style.background = 'var(--light-pink)';
+            this.style.transform = 'translateY(0)';
+        };
 
-            <div class="flex-grow-1 overflow-auto">
-            <!-- Premade files that users can "open" -->
-            <div class="document-item p-1 mb-2" style="background: var(--light-pink); cursor: pointer;" onclick="openRecycleFile('resume_old.docx')">
-                <div class="d-flex align-items-center gap-3">
-                    <i class="hn hn-writing" style="color: var(--neon-pink);"></i>
-                    <div>
-                        <strong 
-                        style="color: var(--purple); font-size:16px;">resume_old.docx
-                        </strong>
-                        <br>
-                        <small style="color: var(--pink); font-size:12px;">Old resume version from 2023</small>
-                    </div>
-                </div>
-            </div>
+        // Create flex container for icon + content
+        const contentContainer = document.createElement('div');
+        contentContainer.className = 'd-flex align-items-center gap-3';
+        
+        // Add icon based on file type
+        const icon = document.createElement('i');
+        switch(item.type) {
+            case 'html':
+                icon.className = 'hn hn-writing';
+                break;
+            case 'document':
+                icon.className = 'hn hn-writing';
+                break;
+            case 'design':
+                icon.className = 'hn hn-writing';
+                break;
+            case 'text':
+                icon.className = 'hn hn-writing';
+                break;
+            case 'archive':
+                icon.className = 'hn hn-writing';
+                break;
+            case 'music':
+                icon.className = 'hn hn-writing';
+                break;
+            default:
+                icon.className = 'hn hn-writing';
+        }
+        icon.style.fontSize = '18px';
+        icon.style.color = 'var(--neon-pink)';
+
+        // Create content container for title and metadata
+        const textContainer = document.createElement('div');
+        textContainer.className = 'd-flex flex-column';
+        
+        // Add title
+        const title = document.createElement('div');
+        title.className = 'document-title';
+        title.textContent = item.title;
+        title.style.wordBreak = 'break-word';
+        title.style.color = 'var(--purple)';
+        title.style.fontWeight = 'bold';
+        title.style.fontSize = '14px';
+
+        // Add metadata
+        const metadata = document.createElement('div');
+        metadata.className = 'document-metadata';
+        metadata.innerHTML = `
+            <small style="color: var(--puce); font-size: 11px;">
+                Deleted: ${item.deletedDate} • Size: ${item.size}
+            </small>
+        `;
+
+        // Add elements to containers
+        textContainer.appendChild(title);
+        textContainer.appendChild(metadata);
+        contentContainer.appendChild(icon);
+        contentContainer.appendChild(textContainer);
+        binItem.appendChild(contentContainer);
+        container.appendChild(binItem);
+    });
+
+    windowBody.appendChild(container);
+}
+
+function openRecycleItem(itemId) {
+    alert("Can only be viewed by approved peoples. ฅ( ̳Φ·̫Φ# ̳)੭ु");
+}
+
+// NOTES
+
+// Add Notes data
+const notesList = [
+    {   
+        id: 'note1', 
+        title: 'Project Ideas',
+        content: 'Coming soon ≽(-⩊-マ≼'
+    },
+    {   
+        id: 'note2', 
+        title: 'Learning Goals',
+        content: 'Coming soon ≽(-⩊-マ≼'
+    },
+    {   
+        id: 'note3', 
+        title: 'Random Thoughts',
+        content: 'Coming soon ≽(-⩊-マ≼'
+    }
+];
+
+function loadNotesWindow() {
+    const windowBody = document.querySelector('#notepad .window-body');
+    const notesWindow = document.getElementById('notepad');
+    if (!windowBody || !notesWindow) return;
+
+    // Clear existing content
+    windowBody.innerHTML = '';
+
+    // RESET WINDOW SIZE to original
+    notesWindow.style.width = '400px';
+    notesWindow.style.height = '300px';
+    centerWindow(notesWindow);
+
+    // Set pink scrollbar
+    windowBody.style.scrollbarColor = 'var(--pink) transparent';
+
+    // Create container for notes using Bootstrap
+    const container = document.createElement('div');
+    container.className = 'd-flex flex-column gap-2 overflow-auto';
+    container.style.maxHeight = '100%';
+    container.style.height = '95%';
+    container.style.scrollbarColor = 'var(--pink) transparent';
+
+    notesList.forEach(note => {
+        const noteItem = document.createElement('div');
+        noteItem.className = 'document-item p-2 me-3';
+        noteItem.style.cursor = 'pointer';
+        noteItem.style.transition = 'all 0.2s ease';
+        noteItem.style.wordBreak = 'break-word';
+        noteItem.onclick = () => openNote(note.id);
+
+        // Add hover effects
+        noteItem.onmouseover = function() {
+            this.classList.add('shadow');
+            this.style.background = 'var(--light-pink)';
+        };
+        
+        noteItem.onmouseout = function() {
+            this.classList.remove('shadow');
+            this.style.background = '';
+        };
+
+        // Create flex container for icon + title
+        const contentContainer = document.createElement('div');
+        contentContainer.className = 'd-flex align-items-center gap-3';
+        
+        // Add note icon
+        const icon = document.createElement('i');
+        icon.className = 'hn hn-writing';
+        icon.style.fontSize = '18px';
+
+        // Add title
+        const title = document.createElement('div');
+        title.className = 'document-title';
+        title.textContent = note.title;
+        title.style.wordBreak = 'break-word';
+
+        // Add icon and title to flex container
+        contentContainer.appendChild(icon);
+        contentContainer.appendChild(title);
+
+        // Add flex container to note item
+        noteItem.appendChild(contentContainer);
+        container.appendChild(noteItem);
+    });
+
+    windowBody.appendChild(container);
+}
+
+function openNote(noteId) {
+    const note = notesList.find(n => n.id === noteId);
+    if (!note) return;
+
+    const windowBody = document.querySelector('#notepad .window-body');
+    const notesWindow = document.getElementById('notepad');
+    if (!windowBody || !notesWindow) return;
+
+    // Clear the window
+    windowBody.innerHTML = '';
+
+    // Create back button (same style as documents)
+    const backButton = document.createElement('button');
+    backButton.className = 'btn btn-lg mb-3';
+    backButton.title = 'Back to Notes';
+
+    // Resize window for better viewing
+    notesWindow.style.maxWidth = '80%';
+    notesWindow.style.height = '70%';
+    centerWindow(notesWindow);
+
+    // Store the original styles
+    const originalStyles = {
+        backgroundColor: 'var(--light-pink)',
+        color: 'var(--purple)',
+        borderTop: '3px solid var(--pink)',
+        borderLeft: '3px solid var(--pink)',
+        borderBottom: '3px solid var(--grape)',
+        borderRight: '3px solid var(--grape)'
+    };
+    
+    // Apply custom colors
+    backButton.style.backgroundColor = originalStyles.backgroundColor;
+    backButton.style.color = originalStyles.color;
+    backButton.style.border = originalStyles.border;
+    backButton.style.borderTop = originalStyles.borderTop;
+    backButton.style.borderLeft = originalStyles.borderLeft;
+    backButton.style.borderBottom = originalStyles.borderBottom;
+    backButton.style.borderRight = originalStyles.borderRight;
+    backButton.style.borderRadius = '0';
+    backButton.style.width = '32px';
+    backButton.style.height = '32px';
+    backButton.style.display = 'flex';
+    backButton.style.alignItems = 'center';
+    backButton.style.justifyContent = 'center';
+
+    // Create icon element
+    const backIcon = document.createElement('i');
+    backIcon.className = 'hn hn-arrow-left-solid';
+    
+    // Add icon and text to button
+    backButton.appendChild(backIcon);
+
+    // Add hover effects
+    backButton.onmouseover = function() {
+        this.style.backgroundColor = 'var(--puce)';
+        this.style.color = 'var(--light-pink)';
+    };
+    
+    backButton.onmouseout = function() {
+        this.style.backgroundColor = originalStyles.backgroundColor;
+        this.style.color = originalStyles.color;
+        this.style.border = originalStyles.border;
+        this.style.borderTop = originalStyles.borderTop;
+        this.style.borderLeft = originalStyles.borderLeft;
+        this.style.borderBottom = originalStyles.borderBottom;
+        this.style.borderRight = originalStyles.borderRight;
+    };
+    
+    backButton.onclick = loadNotesWindow;
+    windowBody.appendChild(backButton);
+
+    // Create scrollable container
+    const scrollContainer = document.createElement('div');
+    scrollContainer.style.overflowY = 'auto';
+    scrollContainer.style.maxHeight = '85%';
+    scrollContainer.style.padding = '10px';
+    scrollContainer.style.boxSizing = 'border-box';
+
+    // Show note content
+    const content = document.createElement('div');
+    content.innerHTML = `
+        <div 
+        class="p-4 me-2" 
+        style="
+            background: var(--light-pink);
+            border: double 7px;
+            border-color: var(--pink);
+            color: var(--purple);
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        ">
+            <h3 
+            class="mb-3 px-2 py-2"
+            style="
+                color: var(--puce);
+                background-color: var(--pink);
+                text-align: center;
+                border: none var(--light-pink);
+                outline: 3px dashed var(--pink);
+                outline-offset: 3px;
+                text-shadow: 2px 2px 0px var(--light-pink);
+                user-select: none;
+            ">
+            ${note.title}
+            </h3>
+            
+            <p style="font-size: 14px; text-align: center; color: var(--purple);">
+                ${note.content}
+            </p>
         </div>
     `;
 
-    windowBody.appendChild(binContainer);
+    scrollContainer.appendChild(content);
+    windowBody.appendChild(scrollContainer);
 }
+
+// My Computer 
+// Add My Computer data
+const myComputerList = [
+    {   
+        id: 'drive1', 
+        title: 'Local Disk (C:)',
+        type: 'drive',
+        size: 'Free: 245 GB / 500 GB'
+    },
+    {   
+        id: 'drive2', 
+        title: 'Documents (D:)',
+        type: 'drive', 
+        size: 'Free: 89 GB / 250 GB'
+    },
+    {   
+        id: 'drive3', 
+        title: 'System Files',
+        type: 'system',
+        size: 'Free: 15 GB / 20 GB'
+    },
+    { 
+        id: 'folder1', 
+        title: 'My Documents',
+        type: 'folder',
+        size: '125 items'
+    },
+    { 
+        id: 'folder2', 
+        title: 'My Pictures',
+        type: 'folder',
+        size: '347 items'
+    },
+    { 
+        id: 'folder3', 
+        title: 'My Music',
+        type: 'folder',
+        size: '89 items'
+    }
+];
+
+function loadMyComputerWindow() {
+    const windowBody = document.querySelector('#myComputer .window-body');
+    const myComputerWindow = document.getElementById('myComputer');
+    if (!windowBody || !myComputerWindow) return;
+
+    // Clear existing content
+    windowBody.innerHTML = '';
+
+    // RESET WINDOW SIZE to original
+    myComputerWindow.style.width = '400px';
+    myComputerWindow.style.height = '300px';
+    centerWindow(myComputerWindow);
+
+    // Set pink scrollbar
+    windowBody.style.scrollbarColor = 'var(--pink) transparent';
+
+    // Create container for computer items using Bootstrap
+    const container = document.createElement('div');
+    container.className = 'd-flex flex-column gap-2 overflow-auto';
+    container.style.maxHeight = '100%';
+    container.style.height = '95%';
+    container.style.scrollbarColor = 'var(--pink) transparent';
+
+    myComputerList.forEach(item => {
+        const computerItem = document.createElement('div');
+        computerItem.className = 'document-item p-2 me-3';
+        computerItem.style.cursor = 'pointer';
+        computerItem.style.transition = 'all 0.2s ease';
+        computerItem.style.wordBreak = 'break-word';
+        computerItem.onclick = () => openComputerItem(item.id);
+
+        // Add hover effects
+        computerItem.onmouseover = function() {
+            this.classList.add('shadow');
+            this.style.background = 'var(--light-pink)';
+        };
+        
+        computerItem.onmouseout = function() {
+            this.classList.remove('shadow');
+            this.style.background = '';
+        };
+
+        // Create flex container for icon + content
+        const contentContainer = document.createElement('div');
+        contentContainer.className = 'd-flex align-items-center gap-3';
+        
+        // Add icon based on item type
+        const icon = document.createElement('i');
+        switch(item.type) {
+            case 'drive':
+                icon.className = 'hn hn-hdd-solid';
+                break;
+            case 'system':
+                icon.className = 'hn hn-cog-solid';
+                break;
+            case 'folder':
+                icon.className = 'hn hn-folder-solid';
+                break;
+            default:
+                icon.className = 'hn hn-folder-solid';
+        }
+        icon.style.fontSize = '18px';
+
+        // Create content container for title and metadata
+        const textContainer = document.createElement('div');
+        textContainer.className = 'd-flex flex-column';
+        
+        // Add title
+        const title = document.createElement('div');
+        title.className = 'document-title';
+        title.textContent = item.title;
+        title.style.wordBreak = 'break-word';
+        title.style.color = 'var(--purple)';
+        title.style.fontWeight = 'bold';
+        title.style.fontSize = '14px';
+
+        // Add metadata
+        const metadata = document.createElement('div');
+        metadata.className = 'document-metadata';
+        metadata.innerHTML = `
+            <small style="color: var(--pink); font-size: 11px;">
+                ${item.size}
+            </small>
+        `;
+
+        // Add elements to containers
+        textContainer.appendChild(title);
+        textContainer.appendChild(metadata);
+        contentContainer.appendChild(icon);
+        contentContainer.appendChild(textContainer);
+        computerItem.appendChild(contentContainer);
+        container.appendChild(computerItem);
+    });
+
+    windowBody.appendChild(container);
+}
+
+function openComputerItem(itemId) {
+    const item = myComputerList.find(i => i.id === itemId);
+    if (!item) return;
+
+    const windowBody = document.querySelector('#myComputer .window-body');
+    const myComputerWindow = document.getElementById('myComputer');
+    if (!windowBody || !myComputerWindow) return;
+
+    // Clear the window
+    windowBody.innerHTML = '';
+
+    // Create back button (same style as documents)
+    const backButton = document.createElement('button');
+    backButton.className = 'btn btn-lg mb-3';
+    backButton.title = 'Back to My Computer';
+
+    // Resize window for better viewing
+    myComputerWindow.style.maxWidth = '80%';
+    myComputerWindow.style.height = '70%';
+    centerWindow(myComputerWindow);
+
+    // Store the original styles
+    const originalStyles = {
+        backgroundColor: 'var(--light-pink)',
+        color: 'var(--purple)',
+        borderTop: '3px solid var(--pink)',
+        borderLeft: '3px solid var(--pink)',
+        borderBottom: '3px solid var(--grape)',
+        borderRight: '3px solid var(--grape)'
+    };
+    
+    // Apply custom colors
+    backButton.style.backgroundColor = originalStyles.backgroundColor;
+    backButton.style.color = originalStyles.color;
+    backButton.style.border = originalStyles.border;
+    backButton.style.borderTop = originalStyles.borderTop;
+    backButton.style.borderLeft = originalStyles.borderLeft;
+    backButton.style.borderBottom = originalStyles.borderBottom;
+    backButton.style.borderRight = originalStyles.borderRight;
+    backButton.style.borderRadius = '0';
+    backButton.style.width = '32px';
+    backButton.style.height = '32px';
+    backButton.style.display = 'flex';
+    backButton.style.alignItems = 'center';
+    backButton.style.justifyContent = 'center';
+
+    // Create icon element
+    const backIcon = document.createElement('i');
+    backIcon.className = 'hn hn-arrow-left-solid';
+    
+    // Add icon and text to button
+    backButton.appendChild(backIcon);
+
+    // Add hover effects
+    backButton.onmouseover = function() {
+        this.style.backgroundColor = 'var(--puce)';
+        this.style.color = 'var(--light-pink)';
+    };
+    
+    backButton.onmouseout = function() {
+        this.style.backgroundColor = originalStyles.backgroundColor;
+        this.style.color = originalStyles.color;
+        this.style.border = originalStyles.border;
+        this.style.borderTop = originalStyles.borderTop;
+        this.style.borderLeft = originalStyles.borderLeft;
+        this.style.borderBottom = originalStyles.borderBottom;
+        this.style.borderRight = originalStyles.borderRight;
+    };
+    
+    backButton.onclick = loadMyComputerWindow;
+    windowBody.appendChild(backButton);
+
+    // Create scrollable container
+    const scrollContainer = document.createElement('div');
+    scrollContainer.style.overflowY = 'auto';
+    scrollContainer.style.maxHeight = '85%';
+    scrollContainer.style.padding = '10px';
+    scrollContainer.style.boxSizing = 'border-box';
+
+    // Show computer item content
+    const content = document.createElement('div');
+    content.innerHTML = `
+        <div 
+        class="p-4 me-2" 
+        style="
+            background: var(--light-pink);
+            border: double 7px;
+            border-color: var(--pink);
+            color: var(--purple);
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        ">
+            <h3 
+            class="mb-3 px-2 py-2"
+            style="
+                color: var(--puce);
+                background-color: var(--pink);
+                text-align: center;
+                border: none var(--light-pink);
+                outline: 3px dashed var(--pink);
+                outline-offset: 3px;
+                text-shadow: 2px 2px 0px var(--light-pink);
+                user-select: none;
+            ">
+            ${item.title}
+            </h3>
+            
+            <div class="text-center mb-4">
+                <i class="hn hn-${getComputerIcon(item.type)}" style="font-size: 48px; color: var(--neon-pink);"></i>
+            </div>
+            
+            <div class="p-3 mb-3" style="background: var(--pink); border: 3px solid var(--light-pink);">
+                <p style="margin: 0; font-size: 14px; color: var(--grape); text-align: center;">
+                    <strong>Type:</strong> ${getComputerTypeName(item.type)}<br>
+                    <strong>Size:</strong> ${item.size}
+                </p>
+            </div>
+            
+            <p style="font-size: 14px; text-align: center; color: var(--purple);">
+                ${getComputerMessage(item.type)}
+            </p>
+        </div>
+    `;
+
+    scrollContainer.appendChild(content);
+    windowBody.appendChild(scrollContainer);
+}
+
+// Helper functions for My Computer
+function getComputerIcon(type) {
+    const icons = {
+        'drive': 'hdd-solid',
+        'system': 'cog-solid',
+        'folder': 'folder-solid'
+    };
+    return icons[type] || 'folder-solid';
+}
+
+function getComputerTypeName(type) {
+    const names = {
+        'drive': 'Hard Drive',
+        'system': 'System Folder',
+        'folder': 'Folder'
+    };
+    return names[type] || 'Folder';
+}
+
+function getComputerMessage(type) {
+    const messages = {
+        'drive': 'This drive contains your system files and applications.',
+        'system': 'Important system files. Be careful what you modify!',
+        'folder': 'This folder contains your personal files and documents.'
+    };
+    return messages[type] || 'Browse your files and folders.';
+}
+
+// Add this to your JavaScript
+function createVolumeSlider() {
+    // Remove existing volume slider if it exists
+    const existingSlider = document.getElementById('volumeSlider');
+    if (existingSlider) {
+        existingSlider.remove();
+        return;
+    }
+
+    // Create volume slider container
+    const volumeSlider = document.createElement('div');
+    volumeSlider.id = 'volumeSlider';
+    volumeSlider.className = 'volume-slider';
+    volumeSlider.style.cssText = `
+        position: absolute;
+        bottom: 70px;
+        right: 10%;
+        background: var(--light-pink);
+        border: 3px outset var(--pink);
+        padding: 10px 10px;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transform: translateY(10px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    `;
+
+    // Create volume slider - no handle, just the bar
+    volumeSlider.innerHTML = `
+        <div id="volumeTrack" style="
+            width: 20px;
+            height: 120px;
+            background: var(--pink);
+            border: 2px inset var(--pink);
+            position: relative;
+            margin: 0 auto;
+            cursor: pointer;
+            overflow: hidden;
+        ">
+            <div id="volumeLevel" style="
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 70%;
+                background: var(--neon-pink);
+                transition: height 0.1s ease;
+                cursor: pointer;
+            "></div>
+        </div>
+    `;
+
+    // Add to body
+    document.body.appendChild(volumeSlider);
+
+    // Animate in
+    setTimeout(() => {
+        volumeSlider.style.transform = 'translateY(0)';
+        volumeSlider.style.opacity = '1';
+    }, 10);
+
+    // Volume control functionality - drag the entire bar
+    const volumeLevel = document.getElementById('volumeLevel');
+    const volumeTrack = document.getElementById('volumeTrack');
+    let isDragging = false;
+    let currentVolume = 70; // Start at 70%
+
+    function setVolume(percent) {
+        // Constrain between 0 and 100
+        const height = Math.max(0, Math.min(100, percent));
+        currentVolume = height;
+        volumeLevel.style.height = height + '%';
+    }
+
+    function handleVolumeDrag(e) {
+        const rect = volumeTrack.getBoundingClientRect();
+        const clickY = rect.bottom - e.clientY;
+        const percent = (clickY / rect.height) * 100;
+        setVolume(percent);
+    }
+
+    // Click to set volume
+    volumeTrack.addEventListener('click', (e) => {
+        handleVolumeDrag(e);
+    });
+
+    // Drag to adjust volume
+    volumeTrack.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        handleVolumeDrag(e); // Set initial position
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        handleVolumeDrag(e);
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!volumeSlider.contains(e.target) && !e.target.closest('.hn-sound-on-solid')) {
+            volumeSlider.style.transform = 'translateY(10px)';
+            volumeSlider.style.opacity = '0';
+            setTimeout(() => {
+                if (volumeSlider.parentElement) {
+                    volumeSlider.remove();
+                }
+            }, 300);
+        }
+    });
+
+    // Prevent closing when clicking inside slider
+    volumeSlider.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+}
+
+// Add click event to sound icon
+document.addEventListener('DOMContentLoaded', function() {
+    const soundIcon = document.querySelector('.hn-sound-on-solid');
+    if (soundIcon) {
+        soundIcon.style.cursor = 'pointer';
+        soundIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            createVolumeSlider();
+        });
+    }
+});
+
 
 function shutdown() {
     // Create black overlay covering entire screen
@@ -1606,6 +3108,10 @@ openWindow = function(windowId) {
         loadMusicWindow();
     } else if (windowId === 'recycleBin') {
         loadRecycleBinWindow();
+    } else if (windowId === 'notepad') {
+        loadNotesWindow();
+    } else if (windowId === 'myComputer') {
+        loadMyComputerWindow();
     }
 };
     
