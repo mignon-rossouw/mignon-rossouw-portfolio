@@ -1,6 +1,355 @@
+/* Colour Palette */
+        /*
+
+        #f2eef1     white
+        #ffa7bf     light pink
+        #ec7d9b     pink
+        #e64667     neon pink
+        #a02552     puce
+        #75024d     grape
+        #2c0f30     purple
+        #e18434     dark orange
+        #ffa01b     orange
+        #ffbd20     yellow
+
+        */
+
+:root {
+  --white: #f2eef1 ;
+  --light-pink: #ffa7bf;
+  --pink: #ec7d9b;
+  --neon-pink: #e64667;
+  --puce: #a02552;
+  --grape: #75024d;
+  --purple: #2c0f30;
+  --dark-orange: #e18434;
+  --orange: #ffa01b;
+  --yellow: #ffbd20;
+}
+
 @font-face {
-  font-family: 'NokiaFC22';
-  src: url('../assets/fonts/NokiaFC22.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'NokiaFC22';
+    src: url('/assets/fonts/nokiafc22.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-image: url("/assets/images/backgrounds/orig_big.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'NokiaFC22', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-container {
+    height: calc(100vh - 60px);
+    padding: 20px;
+}
+
+.desktop-icon {
+    width: 100px;
+    text-align: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+
+.desktop-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.desktop-icon:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.icon-img {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple);
+}
+
+.icon-label {
+    color: var(--purple);
+    word-break: break-word;
+    line-height: 1.6;
+    font-size: xx-small;
+}
+
+.taskbar {
+    height: 60px;
+    background-color: var(--pink);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    border-top: 3px solid var(--light-pink);
+}
+
+.taskbar-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Base star style */
+.star, .medium, .tiny, .fairy { 
+  width: 1px; 
+  height: 1px; 
+  position: absolute; 
+  image-rendering: pixelated; 
+  transform: scale(2);
+  transform-origin: top left; 
+}
+
+/* ===== STAR TYPES ===== */
+.star::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 2px;
+  background: var(--white);
+  box-shadow:
+    0 -2px var(--light-pink),
+    0 2px var(--light-pink),
+    -2px 0 var(--light-pink),
+    2px 0 var(--light-pink);
+}
+
+.tiny::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 2px;
+  background: var(--light-pink);
+}
+
+.fairy::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 1px;
+  background: var(--light-pink);
+}
+
+/* ===== POSITIONS ===== */
+.s1 { top: 17%; left: 16%; }
+.s2 { top: 57%; left: 18%; }
+.s3 { top: 77%; left: 97%; }
+.s4 { top: 54%; left: 84%; }
+.s5 { top: 23%; left: 85%; }
+.s6 { top: 29%; left: 65%; }
+.s7 { top: 43%; left: 45%; }
+.s8 { top: 78%; left: 37%; }
+
+.t1 { top: 67%; left: 30%; }
+.t2 { top: 25%; left: 22%; }
+.t3 { top: 70%; left: 50%; }
+.t4 { top: 79%; left: 86%; }
+.t5 { top: 48%; left: 68%; }
+.t6 { top: 55%; left: 98%; }
+.t7 { top: 35%; left: 35%; }
+.t8 { top: 85%; left: 17%; }
+
+
+.f1 { top: 8%; left: 19%; }
+.f2 { top: 80%; left: 66%; }
+.f3 { top: 26%; left: 83%; }
+.f4 { top: 72%; left: 16%; }
+.f5 { top: 32%; left: 67%; }
+.f6 { top: 59%; left: 34%; }
+.f7 { top: 54%; left: 43%; }
+
+
+.start-button {
+    color: var(--light-pink);
+    background-color: var(--puce);
+    display: flex;
+    align-items: center;
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    cursor: pointer;
+    image-rendering: pixelated;
+    padding: 8px 15px;
+}
+
+.start-button:hover {
+    background-color: var(--grape);
+    color: var(--light-pink);
+    border-bottom: 3px solid var(--purple);
+    border-right: 3px solid var(--purple);
+}
+
+.start-button:active {
+    border-top: 3px solid var(--grape);
+    border-left: 3px solid var(--grape);
+    border-bottom: 3px solid var(--light-pink);
+    border-right: 3px solid var(--light-pink);
+    background-color: var(--neon-pink);
+}
+
+.taskbar-item {
+    color: var(--light-pink);
+    background-color: var(--puce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    cursor: pointer;
+    image-rendering: pixelated;
+    width: 38px;
+    height: 38px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.taskbar-item:hover {
+    background-color: var(--yellow);
+}
+
+.taskbar-item:active {
+    border-top: 3px solid var(--grape);
+    border-left: 3px solid var(--grape);
+    border-bottom: 3px solid var(--light-pink);
+    border-right: 3px solid var(--light-pink);
+    background-color: var(--neon-pink);
+}
+
+.taskbar-item.minimized {
+    background-color: var(--puce);
+    opacity: 0.7;
+}
+
+.taskbar-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    font-size: 18px;
+    color: var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.system-tray {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: var(--purple);
+}
+
+.window {
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 300px;
+    min-height: 200px;
+    display: none;
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    image-rendering: pixelated;
+}
+
+.window-header {
+    background-color: var(--neon-pink);
+    color: var(--purple);
+    cursor: grab;
+}
+
+.window-controls button {
+    color: var(--purple);
+    background: var(--white);
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    cursor: pointer;
+}
+
+.window-controls button:hover {
+    background: var(--light-pink);
+    border-top: 3px solid var(--pink);
+    border-left: 3px solid var(--pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    transition: all 0.2s ease;
+}
+
+.window-controls button:active {
+    background: var(--pink);
+    border-top: 3px solid var(--pink);
+    border-left: 3px solid var(--pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.window-body {
+    height: calc(100% - 40px);
+    overflow: hidden;
+}
+
+.start-menu {
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    width: 300px;
+    background-color: var(--white);
+    display: none;
+    z-index: 1000;
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    image-rendering: pixelated;
+}
+
+.start-menu-header {
+    color: var(--light-pink);
+    background-color: var(--neon-pink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--grape);
+    user-select: none;
+    cursor: default;
+    image-rendering: pixelated;
+}
+
+.start-menu-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--purple);
+}
+
+.start-menu-item:hover {
+    background-color: var(--light-pink);
+}
+
+.start-menu-item i {
+    width: 20px;
+    text-align: center;
 }
