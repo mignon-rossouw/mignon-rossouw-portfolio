@@ -5,23 +5,23 @@ const myComputerList = [
         id: 'drive1', 
         title: 'Local Disk (C:)',
         type: 'drive',
-        size: 'Free: 245 GB / 500 GB'
+        size: '245GB free of 500GB'
     },
     {   
         id: 'drive2', 
         title: 'Documents (D:)',
         type: 'drive', 
-        size: 'Free: 89 GB / 250 GB'
+        size: '89GB free of 250GB'
     },
     {   
         id: 'drive3', 
         title: 'System Files',
         type: 'system',
-        size: 'Free: 15 GB / 20 GB'
+        size: '15GB free of 20GB'
     },
     { 
         id: 'folder1', 
-        title: 'My Documents',
+        title: 'Documents',
         type: 'folder',
         size: '125 items'
     },
@@ -33,7 +33,7 @@ const myComputerList = [
     },
     { 
         id: 'folder3', 
-        title: 'My Music',
+        title: 'Music',
         type: 'folder',
         size: '89 items'
     }
@@ -72,13 +72,14 @@ function loadMyComputerWindow() {
 
         // Add hover effects
         computerItem.onmouseover = function() {
-            this.classList.add('shadow');
             this.style.background = 'var(--light-pink)';
+            this.style.borderLeft = '4px solid var(--pink)';
         };
         
+        // Clear Hover Effects
         computerItem.onmouseout = function() {
-            this.classList.remove('shadow');
             this.style.background = '';
+            this.style.borderLeft = '';
         };
 
         // Create flex container for icon + content
@@ -89,7 +90,7 @@ function loadMyComputerWindow() {
         const icon = document.createElement('i');
         switch(item.type) {
             case 'drive':
-                icon.className = 'hn hn-hdd-solid';
+                icon.className = 'hn hn-save-solid';
                 break;
             case 'system':
                 icon.className = 'hn hn-cog-solid';
@@ -100,7 +101,8 @@ function loadMyComputerWindow() {
             default:
                 icon.className = 'hn hn-folder-solid';
         }
-        icon.style.fontSize = '18px';
+        icon.style.fontSize = '35px';
+        icon.style.color = 'var(--puce)';
 
         // Create content container for title and metadata
         const textContainer = document.createElement('div');
@@ -112,14 +114,13 @@ function loadMyComputerWindow() {
         title.textContent = item.title;
         title.style.wordBreak = 'break-word';
         title.style.color = 'var(--purple)';
-        title.style.fontWeight = 'bold';
-        title.style.fontSize = '14px';
+        title.style.fontSize = '10px';
 
         // Add metadata
         const metadata = document.createElement('div');
         metadata.className = 'document-metadata';
         metadata.innerHTML = `
-            <small style="color: var(--pink); font-size: 11px;">
+            <small style="color: var(--puce); font-size: 8px; opacity: 0.5;">
                 ${item.size}
             </small>
         `;
@@ -268,7 +269,7 @@ function openComputerItem(itemId) {
 // Helper functions for My Computer
 function getComputerIcon(type) {
     const icons = {
-        'drive': 'hdd-solid',
+        'drive': 'save-solid',
         'system': 'cog-solid',
         'folder': 'folder-solid'
     };

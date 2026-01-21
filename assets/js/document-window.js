@@ -61,14 +61,15 @@
 
         // Add hover effects
         docItem.onmouseover = function() {
-            this.classList.add('shadow');
             this.style.background = 'var(--light-pink)';
+            this.style.color = 'var(--pink)';
+            this.style.borderLeft = '4px solid var(--pink)';
         };
         
         docItem.onmouseout = function() {
-            this.classList.remove('shadow');
             this.style.background = '';
             this.style.borderColor = '';
+            this.style.borderLeft = '';
             this.style.transform = 'translateY(0)';
         };
 
@@ -100,13 +101,15 @@
             default:
                 icon.className = 'hn hn-startups';
         }
-        icon.style.fontSize = '18px';
+        icon.style.fontSize = '25px';
+        icon.style.color = 'var(--puce)';
 
         // Add title with Bootstrap text classes
         const title = document.createElement('div');
         title.className = 'document-title';
         title.textContent = doc.title;
         title.style.wordBreak = 'break-word';
+        title.style.color = 'var(--purple)';
 
         // Add icon and title to flex container
         contentContainer.appendChild(icon);
@@ -730,7 +733,7 @@ function openDocument(docId) {
                 I'm constantly learning and expanding my skill set. Here's what I can bring to your project:
                 </p>
                 
-                <!-- FRONTEND SKILLS -->
+                <!-- PROGRAMMING LANGUAGES -->
                 <div class="mb-4">
                     <h4 
                     class="p-2 mb-3 fs-6" 
@@ -743,7 +746,7 @@ function openDocument(docId) {
                         text-shadow: 2px 2px 0px var(--pink);
                         user-select: none;
                     ">
-                    FRONTEND DEVELOPMENT
+                    PROGRAMMING LANGUAGES
                     </h4>
                     
                     <div class="row g-2">
@@ -793,6 +796,29 @@ function openDocument(docId) {
                             </div>
                         </div>
                         
+                        <!-- PHP -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                    style=" color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="hn hn-code-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">PHP</strong>
+                                </div>
+                                <div style="margin-top: 4px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- JavaScript -->
                         <div class="col-6">
                             <div class="p-2 m-2" 
@@ -815,8 +841,8 @@ function openDocument(docId) {
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Bootstrap -->
+
+                        <!-- SQL -->
                         <div class="col-6">
                             <div class="p-2 m-2" 
                                     style=" color: var(--puce);
@@ -829,7 +855,76 @@ function openDocument(docId) {
                                             user-select: none;">
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <i class="hn hn-code-solid" style="color: var(--grape);"></i>
-                                    <strong style="color: var(--grape); font-size: 12px;">Bootstrap</strong>
+                                    <strong style="color: var(--grape); font-size: 12px;">SQL</strong>
+                                </div>
+                                <div style="margin-top: 4px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                    style=" color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="hn hn-code-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Python</strong>
+                                </div>
+                                <div style="margin-top: 4px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Java -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                    style=" color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="hn hn-code-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Java</strong>
+                                </div>
+                                <div style="margin-top: 4px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- C# -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                    style=" color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="hn hn-code-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">C#</strong>
                                 </div>
                                 <div style="margin-top: 4px;">
                                     <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
@@ -840,8 +935,8 @@ function openDocument(docId) {
                         </div>
                     </div>
                 </div>
-                
-                <!-- DESIGN & TOOLS -->
+
+                <!-- FRAMEWORKS -->
                 <div class="mb-4">
                     <h4 
                     class="p-2 mb-3 fs-6" 
@@ -854,11 +949,11 @@ function openDocument(docId) {
                         text-shadow: 2px 2px 0px var(--pink);
                         user-select: none;
                     ">
-                    DESIGN & TOOLS
+                    FRAMEWORKS
                     </h4>
                     
                     <div class="row g-2">
-                        <!-- Responsive Design -->
+                        <!-- Bootstrap -->
                         <div class="col-6">
                             <div class="p-2 m-2" 
                                 style="color: var(--puce);
@@ -875,7 +970,7 @@ function openDocument(docId) {
                                         justify-content: space-between;">
                                 <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
                                     <i class="hn hn-mobile-solid" style="color: var(--grape);"></i>
-                                    <strong style="color: var(--grape); font-size: 12px;">Responsive Design</strong>
+                                    <strong style="color: var(--grape); font-size: 12px;">Bootstrap</strong>
                                 </div>
                                 <div style="margin-top: 8px;">
                                     <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
@@ -885,7 +980,7 @@ function openDocument(docId) {
                             </div>
                         </div>
                         
-                        <!-- UI/UX Design -->
+                        <!-- Tailwind CSS -->
                         <div class="col-6">
                             <div class="p-2 m-2" 
                                 style="color: var(--puce);
@@ -902,7 +997,7 @@ function openDocument(docId) {
                                         justify-content: space-between;">
                                 <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
                                     <i class="hn hn-palette-solid" style="color: var(--grape);"></i>
-                                    <strong style="color: var(--grape); font-size: 12px;">UI/UX Design</strong>
+                                    <strong style="color: var(--grape); font-size: 12px;">Tailwind CSS </strong>
                                 </div>
                                 <div style="margin-top: 8px;">
                                     <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
@@ -912,7 +1007,7 @@ function openDocument(docId) {
                             </div>
                         </div>
                         
-                        <!-- Git Version Control -->
+                        <!-- Materlize -->
                         <div class="col-6">
                             <div class="p-2 m-2" 
                                 style="color: var(--puce);
@@ -929,7 +1024,365 @@ function openDocument(docId) {
                                         justify-content: space-between;">
                                 <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
                                     <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
-                                    <strong style="color: var(--grape); font-size: 12px;">Git & GitHub</strong>
+                                    <strong style="color: var(--grape); font-size: 12px;">Materlize</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Spring Boot -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Spring Boot</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LIBRARIES -->
+                <div class="mb-4">
+                    <h4 
+                    class="p-2 mb-3 fs-6" 
+                    style="
+                        color: var(--puce);
+                        text-align: center;
+                        border: none var(--light-pink);
+                        outline: 3px dashed var(--pink);
+                        outline-offset: 3px;
+                        text-shadow: 2px 2px 0px var(--pink);
+                        user-select: none;
+                    ">
+                    LIBRARIES
+                    </h4>
+                    
+                    <div class="row g-2">
+                        <!-- pandas -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-mobile-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">pandas</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 90%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- NumPy -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-palette-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;"> NumPy </strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 70%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Matplotlib -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Matplotlib</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BeautifulSoup -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">BeautifulSoup</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seaborn -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Seaborn</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                <!-- TOOLS -->
+                <div class="mb-4">
+                    <h4 
+                    class="p-2 mb-3 fs-6" 
+                    style="
+                        color: var(--puce);
+                        text-align: center;
+                        border: none var(--light-pink);
+                        outline: 3px dashed var(--pink);
+                        outline-offset: 3px;
+                        text-shadow: 2px 2px 0px var(--pink);
+                        user-select: none;
+                    ">
+                    DESIGN & CREATIVE TOOLS
+                    </h4>
+                    
+                    <div class="row g-2">
+                        <!-- Figma -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-mobile-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Figma</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 90%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Adobe Illustrator  -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-palette-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Adobe Illustrator</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 70%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Clip Studio Paint -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Clip Studio Paint</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Procreate -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Procreate</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Blender -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Blender</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Aseprite -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Aseprite</strong>
                                 </div>
                                 <div style="margin-top: 8px;">
                                     <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
@@ -939,7 +1392,7 @@ function openDocument(docId) {
                             </div>
                         </div>
                         
-                        <!-- VS Code -->
+                        <!-- Krita -->
                         <div class="col-6">
                             <div class="p-2 m-2" 
                                 style="color: var(--puce);
@@ -956,7 +1409,7 @@ function openDocument(docId) {
                                         justify-content: space-between;">
                                 <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
                                     <i class="hn hn-laptop-solid" style="color: var(--grape);"></i>
-                                    <strong style="color: var(--grape); font-size: 12px;">VS Code</strong>
+                                    <strong style="color: var(--grape); font-size: 12px;">Krita</strong>
                                 </div>
                                 <div style="margin-top: 8px;">
                                     <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
@@ -967,6 +1420,159 @@ function openDocument(docId) {
                         </div>
                     </div>
                 </div>
+
+                <!-- DEVELOPER TOOLS -->
+                <div class="mb-4">
+                    <h4 
+                    class="p-2 mb-3 fs-6" 
+                    style="
+                        color: var(--puce);
+                        text-align: center;
+                        border: none var(--light-pink);
+                        outline: 3px dashed var(--pink);
+                        outline-offset: 3px;
+                        text-shadow: 2px 2px 0px var(--pink);
+                        user-select: none;
+                    ">
+                    DEVELOPER TOOLS
+                    </h4>
+                    
+                    <div class="row g-2">
+                        <!-- Figma -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-mobile-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">VS Code</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 90%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Adobe Illustrator  -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-palette-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Visual Studio</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 70%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Clip Studio Paint -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">IntelliJ</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Procreate -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">NetBeans</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Blender -->
+                        <div class="col-6">
+                            <div class="p-2 m-2" 
+                                style="color: var(--puce);
+                                        text-align: center;
+                                        border: none var(--light-pink);
+                                        outline: 3px solid var(--pink);
+                                        background-color: var(--pink);
+                                        outline-offset: 2px;
+                                        text-shadow: 2px 2px 0px var(--pink);
+                                        user-select: none;
+                                        min-height: 80px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                                    <i class="hn hn-code-branch-solid" style="color: var(--grape);"></i>
+                                    <strong style="color: var(--grape); font-size: 12px;">Android Studio</strong>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <div style="background: var(--light-pink); height: 8px; border: 1px solid var(--grape);">
+                                        <div style="background: var(--neon-pink); height: 100%; width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                 
                 <!-- SOFT SKILLS -->
                     <div class="mb-4">
@@ -1000,8 +1606,48 @@ function openDocument(docId) {
                                             flex-direction: column;
                                             justify-content: center;
                                             align-items: center;">
+
+                                    <i class="hn hn-people-carry-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
+                                    <div style="color: var(--grape); font-size: 11px;">Teamwork</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 m-2" 
+                                    style="color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;
+                                            min-height: 80px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;">
                                     <i class="hn hn-lightbulb-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
-                                    <div style="color: var(--grape); font-size: 11px;">Problem Solving</div>
+                                    <div style="color: var(--grape); font-size: 11px;">Creative Problem Solving</div>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                            <div class="col-6">
+                                <div class="p-2 m-2" 
+                                    style="color: var(--puce);
+                                            text-align: center;
+                                            border: none var(--light-pink);
+                                            outline: 3px solid var(--pink);
+                                            background-color: var(--pink);
+                                            outline-offset: 2px;
+                                            text-shadow: 2px 2px 0px var(--pink);
+                                            user-select: none;
+                                            min-height: 80px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;">
+                                    <i class="hn hn-eye-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
+                                    <div style="color: var(--grape); font-size: 11px;">Eye for Detail</div>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -1019,10 +1665,11 @@ function openDocument(docId) {
                                             flex-direction: column;
                                             justify-content: center;
                                             align-items: center;">
-                                    <i class="hn hn-users-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
-                                    <div style="color: var(--grape); font-size: 11px;">Team Collaboration</div>
+                                    <i class="hn hn-refresh-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
+                                    <div style="color: var(--grape); font-size: 11px;">Adaptability</div>
                                 </div>
                             </div>
+                            <div class="row g-2">
                             <div class="col-6">
                                 <div class="p-2 m-2" 
                                     style="color: var(--puce);
@@ -1038,7 +1685,7 @@ function openDocument(docId) {
                                             flex-direction: column;
                                             justify-content: center;
                                             align-items: center;">
-                                    <i class="hn hn-comments-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
+                                    <i class="hn hn-lightbulb-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
                                     <div style="color: var(--grape); font-size: 11px;">Communication</div>
                                 </div>
                             </div>
@@ -1057,17 +1704,15 @@ function openDocument(docId) {
                                             flex-direction: column;
                                             justify-content: center;
                                             align-items: center;">
-                                    <i class="hn hn-bolt-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
-                                    <div style="color: var(--grape); font-size: 11px;">Fast Learning</div>
+                                    <i class="hn hn-users-solid" style="color: var(--grape); font-size: 16px; margin-bottom: 8px;"></i>
+                                    <div style="color: var(--grape); font-size: 11px;">Time Management</div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
                                     
                                     <!-- CURRENTLY LEARNING -->
                                     <div>
                                         <h4 
-                                        class="p-2 mb-3 fs-6" 
+                                        class="p-2 mb-3 mt-3 fs-6" 
                                         style="
                                             color: var(--puce);
                                             text-align: center;
@@ -1077,7 +1722,7 @@ function openDocument(docId) {
                                             text-shadow: 2px 2px 0px var(--pink);
                                             user-select: none;
                                         ">
-                                        CURRENTLY LEARNING
+                                       CURRENTLY LEARNING
                                         </h4>
                                         
                                         <div class="row g-2">
