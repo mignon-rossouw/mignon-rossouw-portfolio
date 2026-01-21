@@ -124,8 +124,8 @@ function loadRecycleBinWindow() {
             default:
                 icon.className = 'hn hn-writing';
         }
-        icon.style.fontSize = '18px';
-        icon.style.color = 'var(--neon-pink)';
+        icon.style.fontSize = '30px';
+        icon.style.color = 'var(--puce)';
 
         // Create content container for title and metadata
         const textContainer = document.createElement('div');
@@ -138,13 +138,13 @@ function loadRecycleBinWindow() {
         title.style.wordBreak = 'break-word';
         title.style.color = 'var(--purple)';
         title.style.fontWeight = 'bold';
-        title.style.fontSize = '14px';
+        title.style.fontSize = '12px';
 
         // Add metadata
         const metadata = document.createElement('div');
         metadata.className = 'document-metadata';
         metadata.innerHTML = `
-            <small style="color: var(--puce); font-size: 11px;">
+            <small style="color: var(--puce); font-size: 8px; opacity: 0.6;">
                 Deleted: ${item.deletedDate} • Size: ${item.size}
             </small>
         `;

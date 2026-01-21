@@ -50,13 +50,13 @@ function loadNotesWindow() {
 
         // Add hover effects
         noteItem.onmouseover = function() {
-            this.classList.add('shadow');
             this.style.background = 'var(--light-pink)';
+            this.style.borderLeft = '4px solid var(--pink)';
         };
         
         noteItem.onmouseout = function() {
-            this.classList.remove('shadow');
             this.style.background = '';
+            this.style.borderLeft = '';
         };
 
         // Create flex container for icon + title
@@ -66,7 +66,8 @@ function loadNotesWindow() {
         // Add note icon
         const icon = document.createElement('i');
         icon.className = 'hn hn-writing';
-        icon.style.fontSize = '18px';
+        icon.style.fontSize = '25px';
+        icon.style.color = 'var(--puce)';
 
         // Add title
         const title = document.createElement('div');

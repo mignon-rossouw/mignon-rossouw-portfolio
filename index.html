@@ -182,7 +182,7 @@
                     </div>
                 </div>
             <div class="window-body p-3 cursor-default">
-                <!-- Document icons will be loaded here dynamically -->
+                <!-- Content will be loaded here -->
             </div>
         </div>
         
@@ -205,7 +205,117 @@
             </div>
 
             <div class="window-body p-2 cursor-default">
-                <!-- Document icons will be loaded here dynamically -->
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Browser Window -->
+        <!-- ------------------ -->
+        <div id="browser" class="window shadow">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-web3"></i>
+                    <span class="fw-6">Meowser</span>
+                </div>
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('browser')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('browser')">x</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Notes / Notepad Window -->
+        <!-- ------------------ -->
+        <div id="notepad" class="window shadow">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-writing"></i>
+                    <span class="fw-6">Notepad</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('notepad')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('notepad')">x</button>
+                </div>
+            </div>
+
+            <div class="window-body p-3 cursor-default">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Precious Image Window -->
+        <!-- ------------------ -->
+        <div id="precious" class="window shadow">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-image-solid"></i>
+                    <span class="fw-6">precious.png</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('precious')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('precious')">x</button>
+                </div>
+            </div>
+
+            <div class="window-body">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Pounce Game Window -->
+        <!-- ------------------ -->
+        <div id="games" class="window shadow">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-gaming"></i>
+                    <span class="fw-6">Pounce</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('games')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('games')">x</button>
+                </div>
+            </div>
+
+            <div class="window-body p-3 cursor-default">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Music Window -->
+        <!-- ------------------ -->
+        <div id="music" class="window shadow">
+            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
+
+                <!-- LEFT: icon + title -->
+                <div class="d-flex align-items-center gap-2">
+                    <i class="hn hn-music-solid"></i>
+                    <span class="fw-6">Spotify</span>
+                </div>
+
+                <!-- RIGHT: window controls -->
+                <div class="window-controls d-flex gap-2">
+                    <button class="btn btn-sm" onclick="minimizeWindow('music')">_</button>
+                    <button class="btn btn-sm" onclick="closeWindow('music')">x</button>
+                </div>
+            </div>
+
+            <div class="window-body p-3 cursor-default">
+                <!-- Content will be loaded here -->
             </div>
         </div>
         
@@ -231,119 +341,6 @@
             </div>
         </div>
 
-        
-        <!-- Browser Window -->
-        <!-- ------------------ -->
-        <div id="browser" class="window shadow">
-    <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
-        <div class="d-flex align-items-center gap-2">
-            <i class="hn hn-web3"></i>
-            <span class="fw-6">Meowser</span>
-        </div>
-        <div class="window-controls d-flex gap-2">
-            <button class="btn btn-sm" onclick="minimizeWindow('browser')">_</button>
-            <button class="btn btn-sm" onclick="closeWindow('browser')">x</button>
-        </div>
-    </div>
-    <div class="window-body">
-        <!-- Content will be loaded here -->
-    </div>
-</div>
-
-        
-        <!-- Notes / Notepad Window -->
-        <!-- ------------------ -->
-        <div id="notepad" class="window shadow">
-            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
-
-                <!-- LEFT: icon + title -->
-                <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-writing"></i>
-                    <span class="fw-6">Notepad</span>
-                </div>
-
-                <!-- RIGHT: window controls -->
-                <div class="window-controls d-flex gap-2">
-                    <button class="btn btn-sm" onclick="minimizeWindow('notepad')">_</button>
-                    <button class="btn btn-sm" onclick="closeWindow('notepad')">x</button>
-                </div>
-            </div>
-
-            <div class="window-body p-3 cursor-default">
-                <!-- Document icons will be loaded here dynamically -->
-            </div>
-        </div>
-
-
-        <!-- Precious Image Window -->
-        <!-- ------------------ -->
-        <div id="precious" class="window shadow">
-            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
-
-                <!-- LEFT: icon + title -->
-                <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-image-solid"></i>
-                    <span class="fw-6">precious.png</span>
-                </div>
-
-                <!-- RIGHT: window controls -->
-                <div class="window-controls d-flex gap-2">
-                    <button class="btn btn-sm" onclick="minimizeWindow('precious')">_</button>
-                    <button class="btn btn-sm" onclick="closeWindow('precious')">x</button>
-                </div>
-            </div>
-
-            <div class="window-body">
-            </div>
-        </div>
-
-
-        <!-- Pounce Game Window -->
-        <!-- ------------------ -->
-        <div id="games" class="window shadow">
-            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
-
-                <!-- LEFT: icon + title -->
-                <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-gaming"></i>
-                    <span class="fw-6">Pounce</span>
-                </div>
-
-                <!-- RIGHT: window controls -->
-                <div class="window-controls d-flex gap-2">
-                    <button class="btn btn-sm" onclick="minimizeWindow('games')">_</button>
-                    <button class="btn btn-sm" onclick="closeWindow('games')">x</button>
-                </div>
-            </div>
-
-            <div class="window-body p-3 cursor-default">
-                <!-- Document icons will be loaded here dynamically -->
-            </div>
-        </div>
-
-
-        <!-- Music Window -->
-        <!-- ------------------ -->
-        <div id="music" class="window shadow">
-            <div class="window-header d-flex justify-content-between align-items-center px-2 py-2 fs-6">
-
-                <!-- LEFT: icon + title -->
-                <div class="d-flex align-items-center gap-2">
-                    <i class="hn hn-music-solid"></i>
-                    <span class="fw-6">Spotify</span>
-                </div>
-
-                <!-- RIGHT: window controls -->
-                <div class="window-controls d-flex gap-2">
-                    <button class="btn btn-sm" onclick="minimizeWindow('music')">_</button>
-                    <button class="btn btn-sm" onclick="closeWindow('music')">x</button>
-                </div>
-            </div>
-
-            <div class="window-body p-3 cursor-default">
-                <!-- Document icons will be loaded here dynamically -->
-            </div>
-        </div>
         
         <!-- Start Menu -->
         <div id="startMenu" class="start-menu">
@@ -385,6 +382,10 @@
                 </div>
             </div>
         </div>
+
+    </div> <!-- Closing div for desktop-container -->
+
+
     <!-- Taskbar -->
     <div class="taskbar d-flex align-items-center">
         <div class="start-button px-4 py-1" onclick="toggleStartMenu()">

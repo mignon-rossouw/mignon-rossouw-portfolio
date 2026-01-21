@@ -12,8 +12,9 @@
         #ffa01b     orange
         #ffbd20     yellow
 
-        */
+*/
 
+/* ==== ROOT COLOUR PALLETE ==== */
 :root {
   --white: #f2eef1 ;
   --light-pink: #ffa7bf;
@@ -27,6 +28,9 @@
   --yellow: #ffbd20;
 }
 
+/* ==== STYLING FOR ENTIRE PAGE ==== */
+
+/* Font for page */
 @font-face {
     font-family: 'NokiaFC22';
     src: url('/assets/fonts/nokiafc22.ttf') format('truetype');
@@ -34,6 +38,7 @@
     font-style: normal;
 }
 
+/* General Body Styling */
 body {
     background-image: url("/assets/images/backgrounds/orig_big.png");
     background-repeat: no-repeat;
@@ -46,11 +51,15 @@ body {
     padding: 0;
 }
 
+/* ==== Everything but the taskbar ==== */
 .desktop-container {
     height: calc(100vh - 60px);
     padding: 20px;
 }
 
+/* ==== Desktop Icons Styling ==== */
+
+/* Desktop Icon Container */
 .desktop-icon {
     width: 100px;
     text-align: center;
@@ -60,14 +69,17 @@ body {
     border-radius: 5px;
 }
 
+/* Desktop Icon Container Hover */
 .desktop-icon:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Desktop Icon Container Active */
 .desktop-icon:active {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Desktop Icon Image Styling (only the icon image) */ 
 .icon-img {
     width: 50px;
     height: 50px;
@@ -78,6 +90,7 @@ body {
     color: var(--purple);
 }
 
+/* Desktop Icon Label Styling (only the lable of the icon) */
 .icon-label {
     color: var(--purple);
     word-break: break-word;
@@ -85,6 +98,9 @@ body {
     font-size: xx-small;
 }
 
+/* ==== TASKBAR STYLING ==== */
+
+/* General Taskbar Styling */
 .taskbar {
     height: 60px;
     background-color: var(--pink);
@@ -98,6 +114,7 @@ body {
     border-top: 3px solid var(--light-pink);
 }
 
+/* General Taskbar Stars Styling */
 .taskbar-stars {
   position: absolute;
   top: 0;
@@ -148,7 +165,7 @@ body {
   background: var(--light-pink);
 }
 
-/* ===== POSITIONS ===== */
+/* ===== POSITIONS FOR STARS ===== */
 .s1 { top: 17%; left: 16%; }
 .s2 { top: 57%; left: 18%; }
 .s3 { top: 77%; left: 97%; }
@@ -176,36 +193,9 @@ body {
 .f6 { top: 59%; left: 34%; }
 .f7 { top: 54%; left: 43%; }
 
+/* ==== TASKBAR ITEM STYLING (icon that appears when window is opened) ==== */
 
-.start-button {
-    color: var(--light-pink);
-    background-color: var(--puce);
-    display: flex;
-    align-items: center;
-    border-top: 3px solid var(--light-pink);
-    border-left: 3px solid var(--light-pink);
-    border-bottom: 3px solid var(--grape);
-    border-right: 3px solid var(--grape);
-    cursor: pointer;
-    image-rendering: pixelated;
-    padding: 8px 15px;
-}
-
-.start-button:hover {
-    background-color: var(--grape);
-    color: var(--light-pink);
-    border-bottom: 3px solid var(--purple);
-    border-right: 3px solid var(--purple);
-}
-
-.start-button:active {
-    border-top: 3px solid var(--grape);
-    border-left: 3px solid var(--grape);
-    border-bottom: 3px solid var(--light-pink);
-    border-right: 3px solid var(--light-pink);
-    background-color: var(--neon-pink);
-}
-
+/* General Taskbar Item Styling */
 .taskbar-item {
     color: var(--light-pink);
     background-color: var(--puce);
@@ -224,10 +214,12 @@ body {
     padding: 5px;
 }
 
+/* Taskbar Item Hover Styling */
 .taskbar-item:hover {
     background-color: var(--yellow);
 }
 
+/* Taskbar Item Active Styling */
 .taskbar-item:active {
     border-top: 3px solid var(--grape);
     border-left: 3px solid var(--grape);
@@ -236,22 +228,13 @@ body {
     background-color: var(--neon-pink);
 }
 
+/* Taskbar Item Minimized Styling */
 .taskbar-item.minimized {
     background-color: var(--puce);
     opacity: 0.7;
 }
 
-.taskbar-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    font-size: 18px;
-    color: var(--purple);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
+/* ==== SYSTEM TRAY STYLING (sound icon & time)==== */
 .system-tray {
     display: flex;
     align-items: center;
@@ -259,6 +242,43 @@ body {
     color: var(--purple);
 }
 
+/* ==== START BUTTON STYLING ==== */
+
+/* General Start Button Styling */
+.start-button {
+    color: var(--light-pink);
+    background-color: var(--puce);
+    display: flex;
+    align-items: center;
+    border-top: 3px solid var(--light-pink);
+    border-left: 3px solid var(--light-pink);
+    border-bottom: 3px solid var(--grape);
+    border-right: 3px solid var(--grape);
+    cursor: pointer;
+    image-rendering: pixelated;
+    padding: 8px 15px;
+}
+
+/* Start Button Hover Styling */
+.start-button:hover {
+    background-color: var(--grape);
+    color: var(--light-pink);
+    border-bottom: 3px solid var(--purple);
+    border-right: 3px solid var(--purple);
+}
+
+/* Start Button Active Styling */
+.start-button:active {
+    border-top: 3px solid var(--grape);
+    border-left: 3px solid var(--grape);
+    border-bottom: 3px solid var(--light-pink);
+    border-right: 3px solid var(--light-pink);
+    background-color: var(--neon-pink);
+}
+
+/* ==== WINDOW STYLING ==== */
+
+/* General Window Styling */
 .window {
     position: absolute;
     background-color: #ffffff;
@@ -272,12 +292,14 @@ body {
     image-rendering: pixelated;
 }
 
+/* General Window Header Styling */
 .window-header {
     background-color: var(--neon-pink);
     color: var(--purple);
     cursor: grab;
 }
 
+/* General Window Controls Button (minimize & close) */
 .window-controls button {
     color: var(--purple);
     background: var(--white);
@@ -288,6 +310,7 @@ body {
     cursor: pointer;
 }
 
+/* General Window Controls HOVER Button (minimize & close) */
 .window-controls button:hover {
     background: var(--light-pink);
     border-top: 3px solid var(--pink);
@@ -297,6 +320,7 @@ body {
     transition: all 0.2s ease;
 }
 
+/* General Window Controls ACTIVE Button (minimize & close) */
 .window-controls button:active {
     background: var(--pink);
     border-top: 3px solid var(--pink);
@@ -306,11 +330,15 @@ body {
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* General Window Body Styling */
 .window-body {
     height: calc(100% - 40px);
     overflow: hidden;
 }
 
+/* ==== START MENU STYLING ==== */
+
+/* General Start Menu Styling */
 .start-menu {
     position: absolute;
     bottom: 60px;
@@ -326,6 +354,7 @@ body {
     image-rendering: pixelated;
 }
 
+/* General Start Menu Header Styling */
 .start-menu-header {
     color: var(--light-pink);
     background-color: var(--neon-pink);
@@ -338,6 +367,7 @@ body {
     image-rendering: pixelated;
 }
 
+/* General Start Menu Item Styling */
 .start-menu-item {
     cursor: pointer;
     display: flex;
@@ -345,10 +375,12 @@ body {
     color: var(--purple);
 }
 
+/* General Start Menu Item HOVER Styling */
 .start-menu-item:hover {
     background-color: var(--light-pink);
 }
 
+/* General Start Menu Item i Styling */
 .start-menu-item i {
     width: 20px;
     text-align: center;
