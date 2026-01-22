@@ -276,149 +276,215 @@ function openDocument(docId) {
                 <ul 
                 class="mb-4 p-0"
                 style="
-                    font-size: 12px;
                     list-style: none;
                     user-select: none;
                 ">
-            <li 
-            class="mb-3"
-            style="display: flex; align-items: flex-start;">
-
-                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
-
-                <span>/ᐠ •̀ ˕ •́ マ</span>
-            </li>
-            <li 
-            class="mb-3"
-            style="display: flex; align-items: flex-start;">
-                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
-                <span>/ᐠ •̀ ˕ •́ マ</span>
-            </li>
-            <li 
-            class="mb-3"
-            style="display: flex; align-items: flex-start;">
-                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
-                <span>/ᐠ •̀ ˕ •́ マ</span>
-            </li>
-            <li 
-            class="mb-3"
-            style="display: flex; align-items: flex-start;">
-                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
-                <span>/ᐠ •̀ ˕ •́ マ</span>
-            </li>
-            <li style="8px; display: flex; align-items: flex-start;">
-                <i class="hn hn-angle-right-solid" style="color: var(--pink); margin-right: 8px; margin-top: 2px;"></i>
-                <span><strong>/ᐠ •̀ ˕ •́ マ</span>
-            </li>
-        </ul>
-                
-                <div style="
-                    
-        ">
-            <h5 
-            class="p-2 mb-4 fs-6" 
-                style="
-                    color: var(--puce);
-                    text-align: center;
-                    border: none var(--light-pink);
-                    outline: 3px dashed var(--pink);
-                    outline-offset: 3px;
-                    text-shadow: 2px 2px 0px var(--pink);
-                    user-select: none;
-                ">WEBSITE GUIDE</h5>
-            <ul 
-            class="mb-3 p-0"
-            style="
-                list-style: none;
-                font-size: 12px;
-            ">
                 <li 
-                class="mb-4 p-2"
-                style=" display: flex; 
-                        align-items: 
-                        flex-start; 
-                        background-color: var(--pink);
-                        border: none var(--light-pink);
-                        outline: 3px solid var(--pink);
-                        outline-offset: 3px;
-                        user-select: none;
-                        ">
-                    <i class="hn hn-folder-open-solid me-3" style=" color: var(--light-pink);
-                            margin-right: 8px; 
-                            margin-top: 2px;
-                            "></i>
-                    <span><strong style="color: var(--neon-pink);">Documents</strong> <br>Explore my stuff. ( ↀᴥↀ )ฅ</span>
+                class="mb-3"
+                style="display: flex; align-items: flex-start;">
+
+                    <i class="hn hn-angle-right-solid" style="
+                    color: 
+                    var(--pink); 
+                    margin-right: 8px; 
+                    margin-top: 2px;
+                    "></i>
+
+                    <span>/ᐠ •̀ ˕ •́ マ</span>
                 </li>
-
                 <li 
-                class="mb-4 p-2"
-                style=" display: flex; 
-                        align-items: 
-                        flex-start; 
-                        background-color: var(--pink);
-                        border: none var(--light-pink);
-                        outline: 3px solid var(--pink);
-                        outline-offset: 3px;
-                        user-select: none;
-                        ">
-                    <i class="hn hn-web3 me-3" style="color: var(--pink);margin-right: 8px; margin-top: 2px;"></i>
-                    <span><strong style="color: var(--neon-pink);">Meowser</strong> <br> You can browse a.n.y.t.h.i.n.g. </span>
+                class="mb-3"
+                style="display: flex; align-items: flex-start;">
+                    <i class="hn hn-angle-right-solid" style="
+                    color: var(--pink); 
+                    margin-right: 8px; 
+                    margin-top: 2px;
+                    "></i>
+                    <span>/ᐠ •̀ ˕ •́ マ</span>
                 </li>
-
                 <li 
-                class="mb-4 p-2"
-                style=" display: flex; 
-                        align-items: 
-                        flex-start; 
-                        background-color: var(--pink);
-                        border: none var(--light-pink);
-                        outline: 3px solid var(--pink);
-                        outline-offset: 3px;
-                        user-select: none;
-                        ">
-                    <i class="hn hn-writing me-3" style="color: var(--light-pink);margin-right: 8px; margin-top: 2px;"></i>
-                    <span><strong style="color: var(--neon-pink);">Notes</strong> <br> Secret thoughts. Don't go through this...</span>
+                class="mb-3"
+                style="display: flex; align-items: flex-start;">
+                    <i class="hn hn-angle-right-solid" style="
+                    color: var(--pink); 
+                    margin-right: 8px; 
+                    margin-top: 2px;
+                    "></i>
+                    <span>/ᐠ •̀ ˕ •́ マ</span>
                 </li>
-
                 <li 
-                class="mb-4 p-2"
-                style=" display: flex; 
-                        align-items: 
-                        flex-start; 
-                        background-color: var(--pink);
-                        border: none var(--light-pink);
-                        outline: 3px solid var(--pink);
-                        outline-offset: 3px;
-                        user-select: none;
-                        ">
-                    <i class="hn hn-gaming me-3" style="color: var(--light-pink);margin-right: 8px; margin-top: 2px;"></i>
-                    <span><strong style="color: var(--neon-pink);">Pounce</strong> <br> Cat game I made. Coming soon <br> ≽(-⩊-マ≼</span>
+                class="mb-3"
+                style="display: flex; align-items: flex-start;">
+                    <i class="hn hn-angle-right-solid" style="
+                    color: var(--pink); 
+                    margin-right: 8px; 
+                    margin-top: 2px;
+                    "></i>
+                    <span>/ᐠ •̀ ˕ •́ マ</span>
                 </li>
-
-                <li 
-                class="mb-3 p-2"
-                style=" display: flex; 
-                        align-items: 
-                        flex-start; 
-                        background-color: var(--pink);
-                        border: none var(--light-pink);
-                        outline: 3px solid var(--pink);
-                        outline-offset: 3px;
-                        user-select: none;
-                ">
-
-                    <i class="hn hn-music-solid me-3" style="color: var(--light-pink);margin-right: 8px; margin-top: 2px;"></i>
-                    <span><strong style="color: var(--neon-pink);">Spotify</strong> 
-                        
-                        <br> 
-                        Check out my playlist on Spotify!
-                        
-                        </span>
+                <li style="8px; display: flex; align-items: flex-start;">
+                    <i class="hn hn-angle-right-solid" style="
+                    color: var(--pink); 
+                    margin-right: 8px; 
+                    margin-top: 2px;
+                    "></i>
+                    <span><strong>/ᐠ •̀ ˕ •́ マ</span>
                 </li>
             </ul>
+                    
+                    <div style="
+                        
+            ">
+                <h5 
+    class="p-2 mb-4 fs-6" 
+    style="
+        color: var(--puce);
+        text-align: center;
+        border: none var(--light-pink);
+        outline: 3px dashed var(--pink);
+        outline-offset: 3px;
+        text-shadow: 2px 2px 0px var(--pink);
+        user-select: none;
+
+    '">WEBSITE GUIDE</h5>
+<ul 
+    class="mb-3 p-0"
+    style="
+        list-style: none;
+    ">
+    <li 
+        class="mb-4 p-3"
+        style="display: flex; 
+            align-items: center; 
+            background-color: var(--pink);
+            border: none var(--light-pink);
+            outline: 3px solid var(--pink);
+            outline-offset: 3px;
+            user-select: none;
+            min-height: 75px;
+            transition: transform 0.2s ease;
+            "
+        onmouseover="this.style.transform='scale(1.02)'"
+        onmouseout="this.style.transform='scale(1)'">
+        <i class="hn hn-folder-open-solid" style=" 
+            color: var(--puce);
+            font-size: 35px;
+            margin-right: 15px;
+            flex-shrink: 0;
+                "></i>
+        <div>
+            <div style="color: var(--puce); font-weight: bold; font-size: 15px; margin-bottom: 3px;">Documents</div>
+            <div style="color: var(--puce); font-size: 10px; line-height: 1.3; opacity: 0.5;">Explore my stuff. ( ↀᴥↀ )ฅ</div>
         </div>
-            </div>
-        `;
+    </li>
+
+    <li 
+        class="mb-4 p-3"
+        style="display: flex; 
+            align-items: center; 
+            background-color: var(--pink);
+            border: none var(--light-pink);
+            outline: 3px solid var(--pink);
+            outline-offset: 3px;
+            user-select: none;
+            min-height: 75px;
+            transition: transform 0.2s ease;
+            "
+        onmouseover="this.style.transform='scale(1.02)'"
+        onmouseout="this.style.transform='scale(1)'">
+        <i class="hn hn-web3" style="
+            color: var(--puce);
+            font-size: 32px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        "></i>
+        <div>
+            <div style="color: var(--puce); font-weight: bold; font-size: 15px; margin-bottom: 3px;">Meowser</div>
+            <div style="color: var(--puce); font-size: 10px; line-height: 1.3; opacity: 0.5;">You can browse a.n.y.t.h.i.n.g.</div>
+        </div>
+    </li>
+
+    <li 
+        class="mb-4 p-3"
+        style="display: flex; 
+            align-items: center; 
+            background-color: var(--pink);
+            border: none var(--light-pink);
+            outline: 3px solid var(--pink);
+            outline-offset: 3px;
+            user-select: none;
+            min-height: 75px;
+            transition: transform 0.2s ease;
+            "
+        onmouseover="this.style.transform='scale(1.02)'"
+        onmouseout="this.style.transform='scale(1)'">
+        <i class="hn hn-writing" style="
+            color: var(--puce);
+            font-size: 32px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        "></i>
+        <div>
+            <div style="color: var(--puce); font-weight: bold; font-size: 15px; margin-bottom: 3px;">Notes</div>
+            <div style="color: var(--puce); font-size: 10px; line-height: 1.3; opacity: 0.5;">Secret thoughts. Don't go through this...</div>
+        </div>
+    </li>
+
+    <li 
+        class="mb-4 p-3"
+        style="display: flex; 
+            align-items: center; 
+            background-color: var(--pink);
+            border: none var(--light-pink);
+            outline: 3px solid var(--pink);
+            outline-offset: 3px;
+            user-select: none;
+            min-height: 75px;
+            transition: transform 0.2s ease;
+            "
+        onmouseover="this.style.transform='scale(1.02)'"
+        onmouseout="this.style.transform='scale(1)'">
+        <i class="hn hn-gaming" style="
+            color: var(--puce);
+            font-size: 32px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        "></i>
+        <div>
+            <div style="color: var(--puce); font-weight: bold; font-size: 15px; margin-bottom: 3px;">Pounce</div>
+            <div style="color: var(--puce); font-size: 10px; line-height: 1.3; opacity: 0.5;">Cat game I made. Coming soon ≽(-⩊-マ≼</div>
+        </div>
+    </li>
+
+    <li 
+        class="mb-3 p-3"
+        style="display: flex; 
+            align-items: center; 
+            background-color: var(--pink);
+            border: none var(--light-pink);
+            outline: 3px solid var(--pink);
+            outline-offset: 3px;
+            user-select: none;
+            min-height: 75px;
+            transition: transform 0.2s ease;
+            "
+        onmouseover="this.style.transform='scale(1.02)'"
+        onmouseout="this.style.transform='scale(1)'">
+        <i class="hn hn-music-solid" style="
+            color: var(--puce);
+            font-size: 32px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        "></i>
+        <div>
+            <div style="color: var(--puce); font-weight: bold; font-size: 15px; margin-bottom: 3px;">Spotify</div>
+            <div style="color: var(--puce); font-size: 10px; line-height: 1.3; opacity: 0.5;">Check out my playlist on Spotify!</div>
+        </div>
+    </li>
+</ul>
+        </div>
+    </div>
+`;
     
         } else if (docId === 'doc2') {
     // Projects content with same styling as Overview
@@ -463,7 +529,7 @@ function openDocument(docId) {
                     text-align: center;
                     text-shadow: 1px 2px 0px var(--pink);
                     user-select: none;
-                ">Featured Projects</h6>
+                ">FEATURED PROJECTS</h6>
                 
                 <ul style="
                     margin-left: 0;
@@ -474,33 +540,18 @@ function openDocument(docId) {
                 <!-- ##### Project 1 ##### -->
                     <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
                         <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
-                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
-
+                            <i class="hn hn-code-solid me-3" style="color: var(--puce);margin-right: 8px; margin-top: 2px;"></i>
                             <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
-                                
-                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
-                                1px 1px 1px var(--light-pink);
-                                user-select: none;">Portfolio Website</strong> 
-                                
+                                <strong style="color: var(--puce); font-size:14px; user-select: none;">Portfolio Website</strong> 
                                 <br> 
-                                
-                                <p
-                                class="mt-2"
-                                style="text-shadow: 
-                                1px 1px 1px var(--puce);
-                                user-select: none;"
-                                >
-                                This retro-inspired desktop simulator portfolio built with HTML, CSS, Bootstrap, and JavaScript.
+                                <p class="mt-2" style="color: var(--puce); opacity: 0.5; user-select: none;">
+                                    This retro-inspired desktop simulator portfolio built with HTML, CSS, Bootstrap, and JavaScript.
                                 </p>
-                                
                             </span>
                         </div>
-
-                        
                         <a href="#"
                             class="p-2"
-                            style="
-                                color: var(--grape);
+                            style="color: var(--grape);
                                 text-decoration: none;
                                 display: inline-flex;
                                 align-items: center;
@@ -509,8 +560,9 @@ function openDocument(docId) {
                                 font-size:10px;
                                 background-color: var(--pink);
                                 border: 3px outset var(--light-pink);
-                                text-shadow: 1px 1px 0px var(--light-pink);
-                            ">
+                                transition: transform 0.2s ease;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
                             <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
                         </a>
                     </li>
@@ -518,33 +570,18 @@ function openDocument(docId) {
                     <!-- ##### Project 2 ##### -->
                     <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
                         <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
-                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
-
+                            <i class="hn hn-code-solid me-3" style="color: var(--puce);margin-right: 8px; margin-top: 2px;"></i>
                             <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
-                                
-                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
-                                1px 1px 1px var(--light-pink);
-                                user-select: none;">Project 2</strong> 
-                                
+                                <strong style="color: var(--puce); font-size:14px; user-select: none;">Project 2</strong> 
                                 <br> 
-                                
-                                <p
-                                class="mt-2"
-                                style="text-shadow: 
-                                1px 1px 1px var(--puce);
-                                user-select: none;"
-                                >
-                                Coming soon ≽(-⩊-マ≼
+                                <p class="mt-2" style="color: var(--puce); opacity: 0.5; user-select: none;">
+                                    Coming soon ≽(-⩊-マ≼
                                 </p>
-                                
                             </span>
                         </div>
-
-                        
                         <a href="#"
                             class="p-2"
-                            style="
-                                color: var(--grape);
+                            style="color: var(--grape);
                                 text-decoration: none;
                                 display: inline-flex;
                                 align-items: center;
@@ -553,8 +590,9 @@ function openDocument(docId) {
                                 font-size:10px;
                                 background-color: var(--pink);
                                 border: 3px outset var(--light-pink);
-                                text-shadow: 1px 1px 0px var(--light-pink);
-                            ">
+                                transition: transform 0.2s ease;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
                             <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
                         </a>
                     </li>
@@ -562,33 +600,18 @@ function openDocument(docId) {
                     <!-- ##### Project 3 ##### -->
                     <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
                         <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
-                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
-
+                            <i class="hn hn-code-solid me-3" style="color: var(--puce);margin-right: 8px; margin-top: 2px;"></i>
                             <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
-                                
-                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
-                                1px 1px 1px var(--light-pink);
-                                user-select: none;">Project 3</strong> 
-                                
+                                <strong style="color: var(--puce); font-size:14px; user-select: none;">Project 3</strong> 
                                 <br> 
-                                
-                                <p
-                                class="mt-2"
-                                style="text-shadow: 
-                                1px 1px 1px var(--puce);
-                                user-select: none;"
-                                >
-                                Coming soon ≽(-⩊-マ≼
+                                <p class="mt-2" style="color: var(--puce); opacity: 0.5; user-select: none;">
+                                    Coming soon ≽(-⩊-マ≼
                                 </p>
-                                
                             </span>
                         </div>
-
-                        
                         <a href="#"
                             class="p-2"
-                            style="
-                                color: var(--grape);
+                            style="color: var(--grape);
                                 text-decoration: none;
                                 display: inline-flex;
                                 align-items: center;
@@ -597,42 +620,28 @@ function openDocument(docId) {
                                 font-size:10px;
                                 background-color: var(--pink);
                                 border: 3px outset var(--light-pink);
-                                text-shadow: 1px 1px 0px var(--light-pink);
-                            ">
+                                transition: transform 0.2s ease;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
                             <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
                         </a>
                     </li>
-                    
+
                     <!-- ##### Project 4 ##### -->
                     <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
                         <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
-                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
-
+                            <i class="hn hn-code-solid me-3" style="color: var(--puce);margin-right: 8px; margin-top: 2px;"></i>
                             <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
-                                
-                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
-                                1px 1px 1px var(--light-pink);
-                                user-select: none;">Project 4</strong> 
-                                
+                                <strong style="color: var(--puce); font-size:14px; user-select: none;">Project 4</strong> 
                                 <br> 
-                                
-                                <p
-                                class="mt-2"
-                                style="text-shadow: 
-                                1px 1px 1px var(--puce);
-                                user-select: none;"
-                                >
-                                Coming soon ≽(-⩊-マ≼
+                                <p class="mt-2" style="color: var(--puce); opacity: 0.5; user-select: none;">
+                                    Coming soon ≽(-⩊-マ≼
                                 </p>
-                                
                             </span>
                         </div>
-
-                        
                         <a href="#"
                             class="p-2"
-                            style="
-                                color: var(--grape);
+                            style="color: var(--grape);
                                 text-decoration: none;
                                 display: inline-flex;
                                 align-items: center;
@@ -641,8 +650,9 @@ function openDocument(docId) {
                                 font-size:10px;
                                 background-color: var(--pink);
                                 border: 3px outset var(--light-pink);
-                                text-shadow: 1px 1px 0px var(--light-pink);
-                            ">
+                                transition: transform 0.2s ease;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
                             <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
                         </a>
                     </li>
@@ -650,33 +660,18 @@ function openDocument(docId) {
                     <!-- ##### Project 5 ##### -->
                     <li class="mb-4 p-2" style="background-color:var(--pink); border: 5px double var(--light-pink);">
                         <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
-                            <i class="hn hn-code-solid me-3" style="color: var(--grape);margin-right: 8px; margin-top: 2px;"></i>
-
+                            <i class="hn hn-code-solid me-3" style="color: var(--puce);margin-right: 8px; margin-top: 2px;"></i>
                             <span style="font-size:11px; margin-bottom: 10px; color: var(--light-pink);">
-                                
-                                <strong style="color: var(--grape); font-size:14px; text-shadow: 
-                                1px 1px 1px var(--light-pink);
-                                user-select: none;">Project 5</strong> 
-                                
+                                <strong style="color: var(--puce); font-size:14px; user-select: none;">Project 5</strong> 
                                 <br> 
-                                
-                                <p
-                                class="mt-2"
-                                style="text-shadow: 
-                                1px 1px 1px var(--puce);
-                                user-select: none;"
-                                >
-                                Coming soon ≽(-⩊-マ≼
+                                <p class="mt-2" style="color: var(--puce); opacity: 0.5; user-select: none;">
+                                    Coming soon ≽(-⩊-マ≼
                                 </p>
-                                
                             </span>
                         </div>
-
-                        
                         <a href="#"
                             class="p-2"
-                            style="
-                                color: var(--grape);
+                            style="color: var(--grape);
                                 text-decoration: none;
                                 display: inline-flex;
                                 align-items: center;
@@ -685,8 +680,9 @@ function openDocument(docId) {
                                 font-size:10px;
                                 background-color: var(--pink);
                                 border: 3px outset var(--light-pink);
-                                text-shadow: 1px 1px 0px var(--light-pink);
-                            ">
+                                transition: transform 0.2s ease;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
                             <i class="hn hn-globe-solid" style="color: var(--grape); margin-right: 4px; font-size:15px;"></i>View Live
                         </a>
                     </li>

@@ -165,5 +165,6 @@ function loadRecycleBinWindow() {
 }
 
 function openRecycleItem(itemId) {
+    if (window.soundSystem) window.soundSystem.playAlert();
     alert("Can only be viewed by approved peoples. ฅ( ̳Φ·̫Φ# ̳)੭ु");
 }

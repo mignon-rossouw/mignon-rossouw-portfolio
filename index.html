@@ -36,6 +36,7 @@
         <script src="./assets/js/volume.js"></script>
         <script src="./assets/js/shut-down.js"></script>
         <script src="./assets/js/precious.js"></script>
+        <script src="./assets/js/sounds.js"></script>
 
         <script>
             // Connect to windows
@@ -434,6 +435,227 @@
 
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+    <!-- Sounds -->
+
+    <script>
+console.log("=== SOUND SYSTEM INIT ===");
+
+// 1. Create the sound system FIRST
+const clickSound = new Audio('/assets/sounds/click.wav');
+clickSound.volume = 0.3;
+
+function playClickSound() {
+    console.log("Playing click sound");
+    clickSound.currentTime = 0;
+    clickSound.play().catch(() => {
+        // Silent fail - audio will work after user interaction
+    });
+}
+
+// 2. Store references to ALL your original functions BEFORE they get overridden
+const originalFunctions = {
+    openWindow: window.openWindow,
+    closeWindow: window.closeWindow,
+    minimizeWindow: window.minimizeWindow,
+    toggleStartMenu: window.toggleStartMenu,
+    shutdown: window.shutdown,
+    loadBrowserWindow: window.loadBrowserWindow,
+    loadDocumentsWindow: window.loadDocumentsWindow,
+    loadMusicWindow: window.loadMusicWindow,
+    loadRecycleBinWindow: window.loadRecycleBinWindow,
+    loadNotesWindow: window.loadNotesWindow,
+    loadMyComputerWindow: window.loadMyComputerWindow,
+    loadPreciousWindow: window.loadPreciousWindow
+};
+
+console.log("Original functions captured:", Object.keys(originalFunctions));
+
+// 3. Create new wrapped functions that play sound first
+window.openWindow = function(windowId) {
+    console.log("openWindow wrapped with sound:", windowId);
+    playClickSound();
+    if (originalFunctions.openWindow) {
+        return originalFunctions.openWindow(windowId);
+    }
+};
+
+window.closeWindow = function(windowId) {
+    console.log("closeWindow wrapped with sound:", windowId);
+    playClickSound();
+    if (originalFunctions.closeWindow) {
+        return originalFunctions.closeWindow(windowId);
+    }
+};
+
+window.minimizeWindow = function(windowId) {
+    console.log("minimizeWindow wrapped with sound:", windowId);
+    playClickSound();
+    if (originalFunctions.minimizeWindow) {
+        return originalFunctions.minimizeWindow(windowId);
+    }
+};
+
+window.toggleStartMenu = function() {
+    console.log("toggleStartMenu wrapped with sound");
+    playClickSound();
+    if (originalFunctions.toggleStartMenu) {
+        return originalFunctions.toggleStartMenu();
+    }
+};
+
+window.shutdown = function() {
+    console.log("shutdown wrapped with sound");
+    playClickSound();
+    if (originalFunctions.shutdown) {
+        return originalFunctions.shutdown();
+    }
+};
+
+// 4. Wait for DOM and fix ALL click handlers
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("=== SETTING UP CLICK HANDLERS ===");
+    
+    // Fix desktop icons
+    const icons = document.querySelectorAll('.desktop-icon');
+    console.log(`Found ${icons.length} desktop icons`);
+    
+    icons.forEach(icon => {
+        // Get the original onclick
+        const originalOnClick = icon.getAttribute('onclick');
+        if (originalOnClick) {
+            console.log("Desktop icon original onclick:", originalOnClick);
+            
+            // Extract the windowId from the onclick string
+            const match = originalOnClick.match(/openWindow\('([^']+)'\)/);
+            if (match) {
+                const windowId = match[1];
+                console.log(`Extracted windowId: ${windowId}`);
+                
+                // Remove the onclick attribute
+                icon.removeAttribute('onclick');
+                
+                // Add new click listener
+                icon.addEventListener('click', function(e) {
+                    console.log(`Icon clicked: ${windowId}`);
+                    playClickSound();
+                    window.openWindow(windowId);
+                });
+            }
+        }
+    });
+    
+    // Fix window control buttons (minimize/close)
+    document.addEventListener('click', function(e) {
+        // Check if click is on a window control button
+        if (e.target.tagName === 'BUTTON') {
+            const btn = e.target;
+            const btnText = btn.textContent.trim();
+            
+            // Check if it's a minimize button (_)
+            if (btnText === '_') {
+                const windowElement = btn.closest('.window');
+                if (windowElement) {
+                    const windowId = windowElement.id;
+                    console.log("Minimize button clicked for window:", windowId);
+                    e.stopPropagation(); // Prevent sound from playing twice
+                    playClickSound();
+                    window.minimizeWindow(windowId);
+                }
+            }
+            // Check if it's a close button (x)
+            else if (btnText === 'x') {
+                const windowElement = btn.closest('.window');
+                if (windowElement) {
+                    const windowId = windowElement.id;
+                    console.log("Close button clicked for window:", windowId);
+                    e.stopPropagation(); // Prevent sound from playing twice
+                    playClickSound();
+                    window.closeWindow(windowId);
+                }
+            }
+        }
+    });
+    
+    // Fix start button
+    const startButton = document.querySelector('.start-button');
+    if (startButton) {
+        startButton.removeAttribute('onclick');
+        startButton.addEventListener('click', function() {
+            console.log("Start button clicked");
+            playClickSound();
+            window.toggleStartMenu();
+        });
+    }
+    
+    // Fix start menu items
+    const startMenuItems = document.querySelectorAll('.start-menu-item');
+    console.log(`Found ${startMenuItems.length} start menu items`);
+    
+    startMenuItems.forEach(item => {
+        const originalOnClick = item.getAttribute('onclick');
+        if (originalOnClick) {
+            console.log("Start menu item original onclick:", originalOnClick);
+            
+            // Parse the onclick to get windowId and toggle
+            const parts = originalOnClick.split(';');
+            let windowId = null;
+            let hasToggle = false;
+            
+            for (const part of parts) {
+                const openMatch = part.match(/openWindow\('([^']+)'\)/);
+                if (openMatch) {
+                    windowId = openMatch[1];
+                }
+                if (part.includes('toggleStartMenu()')) {
+                    hasToggle = true;
+                }
+            }
+            
+            if (windowId) {
+                console.log(`Start menu item windowId: ${windowId}, hasToggle: ${hasToggle}`);
+                
+                // Remove onclick
+                item.removeAttribute('onclick');
+                
+                // Add new click listener
+                item.addEventListener('click', function() {
+                    console.log(`Start menu item clicked: ${windowId}`);
+                    playClickSound();
+                    window.openWindow(windowId);
+                    if (hasToggle) {
+                        window.toggleStartMenu();
+                    }
+                });
+            }
+        }
+    });
+    
+    // Add sound to regular buttons (that aren't window controls)
+    document.querySelectorAll('button:not([onclick*="Window"])').forEach(button => {
+        if (!button._hasSound) {
+            button.addEventListener('click', function(e) {
+                // Don't play sound for window controls (they're handled above)
+                const btnText = this.textContent.trim();
+                if (btnText !== '_' && btnText !== 'x') {
+                    console.log("Regular button clicked:", this.textContent);
+                    playClickSound();
+                }
+            });
+            button._hasSound = true;
+        }
+    });
+    
+    console.log("=== SOUND SYSTEM READY ===");
+});
+
+// 5. Make functions globally available
+window.playClickSound = playClickSound;
+window.originalFunctions = originalFunctions;
+
+console.log("Sound system initialized");
+</script>
+
     </body>
 
     <script src="./assets/js/clock.js"></script>

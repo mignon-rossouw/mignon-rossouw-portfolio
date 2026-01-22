@@ -1,5 +1,10 @@
 // Add this to your JavaScript
 function createVolumeSlider() {
+    // Play click sound when opening volume slider
+    if (window.soundSystem) {
+        window.soundSystem.playClick();
+    }
+
     // Remove existing volume slider if it exists
     const existingSlider = document.getElementById('volumeSlider');
     if (existingSlider) {
